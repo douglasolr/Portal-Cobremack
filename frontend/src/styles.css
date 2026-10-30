@@ -1,0 +1,44 @@
+@layer utilities;
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+@source './main.tsx';
+@theme inline {
+ --color-primary: var(--pwl-color-primary);
+ --color-surface: var(--pwl-color-surface);
+ --color-foreground: var(--pwl-color-text);
+}
+/* Only module layout and Radix primitives without an equivalent DS component. */
+.pwle-shadcn {font:var(--pwl-font-body);min-width:0;}
+.pwle-migration-switch,.pwle-shadcn-row,.pwle-shadcn-tools {display:flex;align-items:center;flex-wrap:wrap;gap:var(--pwl-space-2);}
+.pwle-migration-switch {margin-bottom:var(--pwl-space-4);}
+.pwle-shadcn-layout,.pwle-shadcn [data-slot=tabs-content],.pwle-shadcn [data-slot=radio-group] {display:grid;gap:var(--pwl-space-4);}
+.pwle-shadcn [data-slot=tabs-content] {margin-top:var(--pwl-space-4);}
+.pwle-shadcn [data-slot=tabs-content][hidden] {display:none;}
+.pwle-shadcn .pwl-card__header {display:block;}
+.pwle-shadcn .pwl-choice {display:flex;margin-block:var(--pwl-space-3);}
+.pwle-shadcn fieldset {border:0;padding:0;margin:0 0 var(--pwl-space-4);min-width:0;}
+.pwle-shadcn legend {font:var(--pwl-font-label);margin-bottom:var(--pwl-space-2);}
+.pwle-shadcn-option {padding:var(--pwl-space-3);margin-bottom:var(--pwl-space-3);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-md);}
+.pwle-shadcn-row {flex-wrap:nowrap;margin-block:var(--pwl-space-2);}
+.pwle-shadcn-row .pwl-input {min-width:0;}
+.pwle-shadcn-row .pwle-shadcn-emoji {width:var(--pwl-control-default);flex:none;}
+.pwle-shadcn-thumb {width:var(--pwl-control-default);height:var(--pwl-control-default);object-fit:cover;border-radius:var(--pwl-radius-sm);}
+.pwle-shadcn .pwle-ui-icon {width:var(--pwl-space-4);height:var(--pwl-space-4);flex:none;}
+.pwle-shadcn .pwle-ui-radio-group-item,.pwle-shadcn .pwle-ui-checkbox {display:inline-flex;align-items:center;justify-content:center;width:var(--pwl-space-5);height:var(--pwl-space-5);padding:0;flex:none;background:var(--pwl-color-control-surface);color:var(--pwl-color-primary);border:1px solid var(--pwl-color-control-border);border-radius:var(--pwl-radius-sm);}
+.pwle-shadcn .pwle-ui-radio-group-item {border-radius:var(--pwl-radius-pill);}
+.pwle-shadcn [data-state=checked] {border-color:var(--pwl-color-primary);background:var(--pwl-color-primary-soft);}
+.pwle-shadcn .pwle-ui-radio-group-indicator {display:flex;}
+.pwle-shadcn .pwle-ui-radio-group-indicator svg {fill:currentColor;width:var(--pwl-space-2);height:var(--pwl-space-2);}
+.pwle-shadcn [role=checkbox]:focus-visible,.pwle-shadcn [role=radio]:focus-visible {outline:0;box-shadow:var(--pwl-shadow-focus);}
+.pwle-shadcn .pwl-select {display:flex;align-items:center;justify-content:space-between;text-align:start;}
+.pwle-shadcn .pwle-ui-select-content {z-index:100100;max-height:var(--radix-select-content-available-height);overflow:auto;min-width:var(--radix-select-trigger-width);background:var(--pwl-color-control-surface);color:var(--pwl-color-text);border:1px solid var(--pwl-color-control-border);border-radius:var(--pwl-radius-md);box-shadow:var(--pwl-shadow-card);padding:var(--pwl-space-1);}
+.pwle-shadcn .pwle-ui-select-item {display:flex;align-items:center;gap:var(--pwl-space-2);padding:var(--pwl-space-2) var(--pwl-space-3);cursor:pointer;outline:0;border-radius:var(--pwl-radius-sm);}
+.pwle-shadcn .pwle-ui-select-item[data-highlighted] {background:var(--pwl-color-selection-surface);}
+.pwle-shadcn .pwle-ui-select-scroll-up-button,.pwle-shadcn .pwle-ui-select-scroll-down-button {display:flex;justify-content:center;}
+.pwle-shadcn .pwle-ui-alert-dialog-overlay {position:fixed;inset:0;z-index:100110;background:var(--pwl-color-text-muted);opacity:.5;}
+.pwle-shadcn .pwle-ui-alert-dialog-content {position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:100111;width:min(100% - var(--pwl-space-7),calc(var(--pwl-space-8)*13));box-sizing:border-box;max-height:calc(100dvh - var(--pwl-space-7));overflow:auto;padding:var(--pwl-space-6);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-lg);background:var(--pwl-color-surface);color:var(--pwl-color-text);box-shadow:var(--pwl-shadow-card);}
+.pwle-shadcn .pwle-ui-alert-dialog-footer {display:flex;justify-content:flex-end;flex-wrap:wrap;gap:var(--pwl-space-2);margin-top:var(--pwl-space-5);}
+/* Hide only fields replaced by React. Rich description, primary image, publication and submit stay available. */
+.pwle-shadcn-active .pwle-editor__main>.pwl-card:nth-child(2),
+.pwle-shadcn-active .pwle-editor__main>.pwl-card:first-child>.pwl-card__body>.pwl-field:first-child,
+.pwle-shadcn-active .pwle-editor__aside>.pwl-card:not(.pwle-publication-card) {display:none;}
+@media(max-width:782px){.pwle-shadcn .pwl-tabs__item {min-width:0;flex:1;}.pwle-shadcn-tools .pwl-button{flex:1;}.pwle-shadcn .pwl-card__body{padding:var(--pwl-space-3);}}

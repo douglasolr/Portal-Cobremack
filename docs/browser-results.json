@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": [
+    "form payload including nonce",
+    "stable option keys and reorder",
+    "cancel/confirm deletion and minimum options",
+    "radio/select/checkbox/datetime bridge",
+    "emoji picker and media event bridge",
+    "PHP roundtrip",
+    "preview without votes",
+    "light/dark at 1440/768/390",
+    "no horizontal overflow",
+    "no browser errors"
+  ],
+  "payload": {
+    "action": "pwl_salvar_enquete_admin",
+    "poll_id": "0",
+    "pwl_enquete_admin_nonce": "fixture-nonce",
+    "title": "Como você avalia o portal?",
+    "description": "",
+    "pwl_image_id": "0",
+    "pwl_option_keys[]": "fixture-2",
+    "pwl_option_emojis[]": "",
+    "pwl_option_labels[]": "Pode melhorar",
+    "pwl_option_image_ids[]": "0",
+    "pwl_type": "multiple",
+    "pwl_results_visibility": "always",
+    "pwl_persistent_until_vote": "1",
+    "pwl_status": "closed",
+    "pwl_closes_at": "2026-11-30T17:30"
+  }
+}

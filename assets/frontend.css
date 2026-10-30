@@ -1,0 +1,177 @@
+.pwl-poll,
+.pwl-poll * { box-sizing: border-box; }
+.pwl-poll {
+    --pwl-orange: #f36b21;
+    --pwl-orange-dark: #d95714;
+    --pwl-green: #163d32;
+    --pwl-text: #23312d;
+    --pwl-muted: #6c7874;
+    --pwl-line: #e3e9e6;
+    max-width: 840px;
+    margin: 24px auto;
+    overflow: hidden;
+    border: 1px solid var(--pwl-line);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 18px 45px rgba(18, 54, 44, .09);
+    color: var(--pwl-text);
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+.pwl-poll__header { padding: 30px 34px 24px; background: linear-gradient(135deg, var(--pwl-green), #235b4b); color: #fff; }
+.pwl-poll__eyebrow { display: inline-block; margin-bottom: 10px; color: #ffc4a3; font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+.pwl-poll__title { margin: 0; color: #fff; font-size: clamp(24px, 4vw, 34px); line-height: 1.2; }
+.pwl-poll__description { margin-top: 10px; color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.65; }
+.pwl-poll__description p { margin: 0; }
+.pwl-poll__body { padding: 28px 34px 32px; }
+.pwl-poll fieldset { margin: 0; padding: 0; border: 0; }
+.pwl-poll__options { display: grid; gap: 12px; }
+.pwl-poll__option { display: flex; align-items: center; gap: 13px; min-height: 56px; padding: 14px 16px; border: 1px solid var(--pwl-line); border-radius: 13px; background: #f9fbfa; cursor: pointer; transition: .2s ease; font-weight: 600; }
+.pwl-poll__option:hover { border-color: var(--pwl-orange); background: #fff8f4; transform: translateY(-1px); }
+.pwl-poll__option input { position: absolute; opacity: 0; pointer-events: none; }
+.pwl-poll__control { position: relative; flex: 0 0 21px; width: 21px; height: 21px; border: 2px solid #aab6b2; border-radius: 50%; background: #fff; }
+.pwl-poll__option input[type="checkbox"] + .pwl-poll__control { border-radius: 6px; }
+.pwl-poll__option input:checked + .pwl-poll__control { border-color: var(--pwl-orange); background: var(--pwl-orange); box-shadow: inset 0 0 0 4px #fff; }
+.pwl-poll__option input:focus-visible + .pwl-poll__control { outline: 3px solid rgba(243,107,33,.25); outline-offset: 3px; }
+.pwl-poll__submit { margin-top: 20px; padding: 14px 24px; border: 0; border-radius: 11px; background: var(--pwl-orange); color: #fff; cursor: pointer; font: inherit; font-weight: 800; transition: .2s ease; }
+.pwl-poll__submit:hover { background: var(--pwl-orange-dark); transform: translateY(-1px); }
+.pwl-poll__submit:disabled { opacity: .65; cursor: wait; transform: none; }
+.pwl-poll__message, .pwl-poll__feedback { padding: 14px 16px; border-radius: 11px; background: #f3f6f5; color: var(--pwl-muted); }
+.pwl-poll__feedback:empty { display: none; }
+.pwl-poll__feedback { margin-top: 16px; }
+.pwl-poll__message--success, .pwl-poll__feedback--success { background: #eaf7f0; color: #17603f; }
+.pwl-poll__feedback--error { background: #fff0ee; color: #a52b1f; }
+.pwl-poll__results:not([hidden]) { margin-top: 24px; }
+.pwl-results__heading { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.pwl-results__heading strong { color: var(--pwl-green); font-size: 19px; }
+.pwl-results__heading span { color: var(--pwl-muted); font-size: 13px; }
+.pwl-results__list { display: grid; gap: 18px; }
+.pwl-result__labels { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 7px; }
+.pwl-result__labels span { font-weight: 650; }
+.pwl-result__labels strong { color: var(--pwl-orange-dark); }
+.pwl-result__track { height: 10px; overflow: hidden; border-radius: 999px; background: #edf1ef; }
+.pwl-result__track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--pwl-orange), #ff985f); transition: width .5s ease; }
+.pwl-result small { display: block; margin-top: 5px; color: var(--pwl-muted); }
+.pwl-poll .screen-reader-text { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+    .pwl-poll { border-radius: 16px; }
+    .pwl-poll__header, .pwl-poll__body { padding-left: 21px; padding-right: 21px; }
+    .pwl-poll__submit { width: 100%; }
+}
+
+
+
+/* PWL Enquetes 2.3.3 | integracao responsiva com PWL Popups */
+.pwl-popup-content .pwl-poll,
+.pwl-preview-body .pwl-poll,
+.pwl-poll.pwl-poll--embedded-popup {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+}
+.pwl-popup-content .pwl-poll > *,
+.pwl-preview-body .pwl-poll > *,
+.pwl-poll.pwl-poll--embedded-popup > * {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+}
+.pwl-popup-content .pwl-poll img,
+.pwl-preview-body .pwl-poll img,
+.pwl-poll.pwl-poll--embedded-popup img {
+    max-width:100% !important;
+    height:auto !important;
+}
+
+/* 2.3.2 | ajuste vertical para popup */
+.pwl-popup-content .pwl-poll__image,
+.pwl-preview-body .pwl-poll__image,
+.pwl-poll.pwl-poll--embedded-popup .pwl-poll__image {
+    width:100% !important;
+    height:auto !important;
+    max-height:min(38vh,360px) !important;
+    object-fit:contain !important;
+}
+.pwl-popup-content .pwl-poll__submit,
+.pwl-preview-body .pwl-poll__submit,
+.pwl-poll.pwl-poll--embedded-popup .pwl-poll__submit {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+}
+
+
+/* 2.3.3 | layout adaptativo ao container do popup */
+.pwl-popup-content .pwl-poll.pwl-poll--intranet,
+.pwl-preview-body .pwl-poll.pwl-poll--intranet,
+.pwl-poll.pwl-poll--intranet.pwl-poll--embedded-popup { container-type:inline-size; container-name:pwl-poll-popup; }
+@container pwl-poll-popup (min-width:900px) {
+  .pwl-poll.pwl-poll--intranet .pwl-poll__body { display:grid!important; grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)!important; column-gap:clamp(20px,2.5vw,34px)!important; row-gap:18px!important; align-items:start!important; }
+  .pwl-poll.pwl-poll--intranet .pwl-poll__question { grid-column:1!important; grid-row:1 / span 2!important; margin-bottom:0!important; }
+  .pwl-poll.pwl-poll--intranet .pwl-poll__body > .pwl-poll__form, .pwl-poll.pwl-poll--intranet .pwl-poll__body > .pwl-poll__message { grid-column:2!important; grid-row:1!important; }
+  .pwl-poll.pwl-poll--intranet .pwl-poll__feedback { grid-column:2!important; grid-row:2!important; margin-top:0!important; }
+  .pwl-poll.pwl-poll--intranet .pwl-poll__results { grid-column:1 / -1!important; }
+}
+/* React questionnaire: styles inherit the official PWL Design System tokens. */
+.pwle-react-questionnaire__choices{display:grid;gap:var(--pwl-space-3,12px)}
+.pwle-react-questionnaire__description{color:var(--pwl-color-text-secondary);margin-bottom:var(--pwl-space-4,16px)}
+.pwle-react-questionnaire__choice{display:flex;align-items:center;gap:var(--pwl-space-3,12px);padding:var(--pwl-space-4,16px);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-lg);background:var(--pwl-color-surface);color:var(--pwl-color-text);cursor:pointer;transition:border-color .18s ease,background .18s ease}
+.pwle-react-questionnaire__choice.is-selected{border-color:var(--pwl-color-primary);background:var(--pwl-color-primary-soft)}
+.pwle-react-questionnaire__choice:focus-within{outline:2px solid var(--pwl-color-primary);outline-offset:2px}
+.pwle-react-questionnaire__choice-content{display:flex;align-items:center;gap:var(--pwl-space-3,12px);flex:1;min-width:0}
+.pwle-react-questionnaire__choice .pwl-poll__control{display:none}
+.pwle-react-questionnaire__form .pwl-poll__submit{margin-top:var(--pwl-space-4,16px)}
+
+/* 2.6.0 | Review and progress, scoped to the React voting surface. */
+.pwle-react-questionnaire__progress{display:grid;gap:var(--pwl-space-2);margin-bottom:var(--pwl-space-4);color:var(--pwl-color-text-secondary)}
+.pwle-react-questionnaire__track{overflow:hidden;background:var(--pwl-color-surface-subtle);border-radius:var(--pwl-radius-lg);height:var(--pwl-space-2)}
+.pwle-react-questionnaire__track span{display:block;height:100%;background:var(--pwl-color-primary);transition:width .25s ease}
+.pwle-react-questionnaire__indicator{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:var(--pwl-space-5);height:var(--pwl-space-5);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-lg);color:var(--pwl-color-primary);font-weight:700}
+.pwle-react-questionnaire__choice.is-selected .pwle-react-questionnaire__indicator{border-color:var(--pwl-color-primary)}
+.pwle-react-questionnaire__choice input{position:absolute;opacity:0;width:var(--pwl-space-5);height:var(--pwl-space-5)}
+.pwle-react-questionnaire__choice:focus-within{outline:2px solid var(--pwl-color-primary);outline-offset:2px}
+.pwle-react-questionnaire__actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--pwl-space-3);margin-top:var(--pwl-space-4)}
+.pwle-react-questionnaire__actions .pwl-poll__submit{margin-top:0}
+.pwle-react-questionnaire__count{color:var(--pwl-color-text-secondary)}
+.pwle-react-questionnaire__back{font:inherit;cursor:pointer;background:var(--pwl-color-surface);border:1px solid var(--pwl-color-border);color:var(--pwl-color-text);border-radius:var(--pwl-radius-lg);padding:var(--pwl-space-3) var(--pwl-space-4)}
+.pwle-react-questionnaire__review h3{color:var(--pwl-color-text)}
+@media(max-width:600px){.pwle-react-questionnaire__actions>*{width:100%}}
+
+/* v2.16.1: dialogo de confirmacao, utilizando tokens oficiais. */
+.pwle-vote-confirm-overlay{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:var(--pwl-space-4);background:var(--pwl-color-overlay, var(--pwl-color-surface-subtle))}
+.pwle-vote-confirm{width:100%;max-width:var(--pwl-modal-width-sm, var(--pwl-container-sm));max-height:90vh;overflow:auto;padding:var(--pwl-space-6,var(--pwl-space-4));border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-lg);background:var(--pwl-color-surface);color:var(--pwl-color-text);box-shadow:var(--pwl-shadow-xl)}
+.pwle-vote-confirm h3{margin:0 0 var(--pwl-space-4);color:var(--pwl-color-text)}
+.pwle-vote-confirm p{margin:0;color:var(--pwl-color-text);overflow-wrap:anywhere}
+.pwle-vote-confirm__actions{display:flex;flex-wrap:wrap;gap:var(--pwl-space-3);margin-top:var(--pwl-space-5)}
+.pwle-vote-confirm__actions button{flex:1;min-width:max-content}
+
+/* v2.16.2 | Stitch split layout. Uses official PWL tokens, no additional voting stages. */
+.pwl-poll.pwl-poll--intranet{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);max-width:var(--pwl-container-xl,1200px);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-xl,var(--pwl-radius-lg));background:var(--pwl-color-surface);color:var(--pwl-color-text);box-shadow:var(--pwl-shadow-xl);overflow:hidden}
+.pwl-poll.pwl-poll--intranet>.pwl-poll__header{grid-column:1/-1;display:flex;align-items:center;min-height:var(--pwl-space-12,48px);padding:var(--pwl-space-3) var(--pwl-space-6);background:var(--pwl-color-surface)!important;color:var(--pwl-color-text)!important;border-bottom:1px solid var(--pwl-color-border)}
+.pwl-poll.pwl-poll--intranet>.pwl-poll__body{grid-column:1/-1;display:grid;grid-template-columns:subgrid;padding:0!important;background:var(--pwl-color-surface)}
+.pwl-poll.pwl-poll--intranet .pwl-poll__question{grid-column:1;padding:var(--pwl-space-7,var(--pwl-space-6));background:var(--pwl-color-surface-subtle);border-right:1px solid var(--pwl-color-border);align-self:stretch}
+.pwl-poll.pwl-poll--intranet .pwl-poll__title{color:var(--pwl-color-text)!important;font-weight:700;letter-spacing:normal;line-height:1.35}
+.pwl-poll.pwl-poll--intranet .pwl-poll__description{color:var(--pwl-color-text-secondary)!important;line-height:1.75}
+.pwl-poll.pwl-poll--intranet .pwl-poll__body>.pwl-poll__form,.pwl-poll.pwl-poll--intranet .pwl-poll__body>.pwle-react-root,.pwl-poll.pwl-poll--intranet .pwl-poll__body>.pwl-poll__results{grid-column:2;grid-row:1;padding:var(--pwl-space-8,var(--pwl-space-6));align-self:start}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__description{font-weight:600;color:var(--pwl-color-text);margin-bottom:var(--pwl-space-5)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__choices{gap:var(--pwl-space-3)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__choice{background:var(--pwl-color-surface);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-lg);padding:var(--pwl-space-4);min-height:var(--pwl-space-16,64px);transition:background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__choice:hover{border-color:var(--pwl-color-primary)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__choice.is-selected{background:var(--pwl-color-primary-soft);border-color:var(--pwl-color-primary);box-shadow:inset 0 0 0 1px var(--pwl-color-primary)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__indicator{border-radius:50%;border:2px solid var(--pwl-color-border);background:var(--pwl-color-surface)}
+.pwl-poll.pwl-poll--intranet .is-selected .pwle-react-questionnaire__indicator{background:var(--pwl-color-primary);border-color:var(--pwl-color-primary);color:var(--pwl-color-on-primary,#fff)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__actions{padding-top:var(--pwl-space-5);border-top:1px solid var(--pwl-color-border)}
+.pwl-poll.pwl-poll--intranet .pwle-react-questionnaire__actions .pwl-poll__submit{border-radius:var(--pwl-radius-lg);background:var(--pwl-color-primary);color:var(--pwl-color-on-primary,#fff)}
+.pwl-poll.pwl-poll--intranet .pwl-poll__eyebrow,.pwl-poll.pwl-poll--intranet .pwl-poll__brand,.pwl-poll.pwl-poll--intranet .pwl-poll__status{display:none!important}
+@media(max-width:820px){.pwl-poll.pwl-poll--intranet,.pwl-poll.pwl-poll--intranet>.pwl-poll__body{display:block}.pwl-poll.pwl-poll--intranet .pwl-poll__question{border-right:0;border-bottom:1px solid var(--pwl-color-border)}.pwl-poll.pwl-poll--intranet .pwl-poll__body>.pwle-react-root,.pwl-poll.pwl-poll--intranet .pwl-poll__body>.pwl-poll__form{padding:var(--pwl-space-5)}}
+
+/* 2.16.3: two-column layout also outside the popup, without steps. */
+@media(min-width:821px){.pwl-poll.pwl-poll--intranet>.pwl-poll__body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0}.pwl-poll.pwl-poll--intranet>.pwl-poll__body>.pwl-poll__question{grid-column:1;grid-row:1 / span 3}.pwl-poll.pwl-poll--intranet>.pwl-poll__body>.pwle-react-root{grid-column:2;grid-row:1}}
+
+/* 2.16.4 | Improved readability of the description in the Stitch split layout. */
+.pwl-poll.pwl-poll--intranet .pwl-poll__description {line-height:2!important;}
+.pwl-poll.pwl-poll--intranet .pwl-poll__description p {line-height:inherit!important;}

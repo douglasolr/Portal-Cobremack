@@ -1,0 +1,114 @@
+/* Etapa 1 da interface React: somente tokens oficiais do PWL Design System. */
+#pwle-react-admin-nav:not(.is-mounted){display:none}
+#pwle-react-admin-nav.is-mounted{display:block}
+#pwle-react-admin-nav.is-mounted + nav.pwle-workspace__tabs{display:none!important}
+.pwle-workspace .pwle-react-shell{display:flex;flex-direction:column;gap:var(--pwl-space-5);margin-bottom:var(--pwl-space-5);padding:var(--pwl-space-6);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-card);background:var(--pwl-color-surface);box-shadow:var(--pwl-shadow-admin)}
+.pwle-react-shell__top{display:flex;align-items:center;justify-content:space-between;gap:var(--pwl-space-4)}
+.pwle-react-shell__heading h2{margin:var(--pwl-space-1) 0;font:var(--pwl-font-heading-lg);color:var(--pwl-color-text)}
+.pwle-react-shell__heading p{margin:0;color:var(--pwl-color-text-secondary);font:var(--pwl-font-body)}
+.pwle-react-shell__eyebrow{color:var(--pwl-color-primary);font:var(--pwl-font-caption);text-transform:uppercase;letter-spacing:var(--pwl-space-density-unit)}
+.pwle-react-shell__module{flex:none;padding:var(--pwl-space-2) var(--pwl-space-3);background:var(--pwl-color-neutral-soft);color:var(--pwl-color-text-secondary);border-radius:var(--pwl-radius-pill);font:var(--pwl-font-small)}
+.pwle-workspace .pwle-react-tablist{display:flex;align-items:center;gap:var(--pwl-space-1);padding:var(--pwl-space-1);width:max-content;max-width:100%;overflow-x:auto;background:var(--pwl-color-surface-subtle);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-md)}
+.pwle-workspace .pwle-react-tab{display:inline-flex;align-items:center;justify-content:center;gap:var(--pwl-space-2);padding:var(--pwl-space-3) var(--pwl-space-4);border-radius:var(--pwl-radius-sm);text-decoration:none;white-space:nowrap;color:var(--pwl-color-text-secondary);font:var(--pwl-font-tab);transition:background-color .16s ease,color .16s ease,box-shadow .16s ease}
+.pwle-workspace .pwle-react-tab:hover{color:var(--pwl-color-primary);background:var(--pwl-color-primary-soft)}
+.pwle-workspace .pwle-react-tab.is-active{background:var(--pwl-color-surface);color:var(--pwl-color-text);box-shadow:var(--pwl-shadow-admin)}
+.pwle-workspace .pwle-react-tab.is-active .dashicons{color:var(--pwl-color-primary)}
+.pwle-workspace .pwle-react-tab:focus-visible,.pwle-react-search:focus-within{outline:2px solid var(--pwl-color-primary);outline-offset:2px}
+.pwle-react-toolbar{display:flex;align-items:center;justify-content:space-between;gap:var(--pwl-space-3)}
+.pwle-react-search{display:flex;align-items:center;gap:var(--pwl-space-2);padding:0 var(--pwl-space-3);min-height:var(--pwl-control-default);min-width:0;width:100%;max-width:calc(var(--pwl-space-8) * 10);border:1px solid var(--pwl-color-control-border);border-radius:var(--pwl-radius-control);background:var(--pwl-color-control-surface);color:var(--pwl-color-text-muted)}
+.pwle-react-search input[type=search]{width:100%;min-width:0;border:0;outline:0;box-shadow:none;background:transparent;color:var(--pwl-color-text);font:var(--pwl-font-body)}
+.pwle-react-toolbar__hint{color:var(--pwl-color-text-muted);font:var(--pwl-font-small)}
+@media(max-width:782px){.pwle-workspace .pwle-react-shell{padding:var(--pwl-space-4)}.pwle-react-shell__module,.pwle-react-toolbar__hint{display:none}.pwle-react-toolbar,.pwle-react-search{max-width:100%}.pwle-react-shell__top{align-items:flex-start}}
+
+/* 2.16.5: Admin UI alinhada ao padrao visual corporativo, sem alterar Portal UI. */
+.pwle-workspace{background:var(--pwl-color-background);color:var(--pwl-color-text);font:var(--pwl-font-body)}
+.pwle-workspace .pwle-workspace__header{display:flex;align-items:center;justify-content:space-between;gap:var(--pwl-space-5);padding:var(--pwl-space-6);background:var(--pwl-color-surface);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-card);box-shadow:var(--pwl-shadow-admin);margin-bottom:var(--pwl-space-5)}
+.pwle-workspace .pwl-page-header__eyebrow{color:var(--pwl-color-primary);font:var(--pwl-font-caption);letter-spacing:var(--pwl-space-density-unit)}
+.pwle-workspace .pwl-page-header__title{color:var(--pwl-color-text);margin:var(--pwl-space-2) 0;font:var(--pwl-font-heading-lg)}
+.pwle-workspace .pwl-page-header__description{color:var(--pwl-color-text-secondary);margin:0;font:var(--pwl-font-body)}
+.pwle-workspace .pwl-page-header__actions{display:flex;align-items:center;gap:var(--pwl-space-3);flex-wrap:wrap}
+.pwle-workspace .pwle-version-card{display:grid;gap:var(--pwl-space-1);padding:var(--pwl-space-3) var(--pwl-space-4);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-md);background:var(--pwl-color-surface);color:var(--pwl-color-text);text-align:center}
+.pwle-workspace .pwle-version-card span{color:var(--pwl-color-text-secondary);font:var(--pwl-font-small)}
+.pwle-workspace .pwle-react-shell{display:flex;gap:var(--pwl-space-4);padding:var(--pwl-space-2);background:var(--pwl-color-surface);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-card);box-shadow:none;margin-bottom:var(--pwl-space-5)}
+.pwle-workspace .pwle-react-tablist{width:100%;max-width:100%;border:0;background:transparent;border-radius:0;gap:var(--pwl-space-2);padding:0}
+.pwle-workspace .pwle-react-tab{color:var(--pwl-color-text);background:transparent;border-radius:var(--pwl-radius-md);font:var(--pwl-font-tab)}
+.pwle-workspace .pwle-react-tab.is-active{color:var(--pwl-color-on-primary);background:var(--pwl-color-primary);box-shadow:none}
+.pwle-workspace .pwle-react-tab.is-active:hover{color:var(--pwl-color-on-primary);background:var(--pwl-color-primary)}
+.pwle-workspace .pwle-react-toolbar{padding:0 var(--pwl-space-3) var(--pwl-space-2)}
+.pwle-workspace .pwle-workspace__content .pwl-card,.pwle-workspace .pwle-workspace__content .pwle-card{border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-card);background:var(--pwl-color-surface);box-shadow:var(--pwl-shadow-admin)}
+@media(max-width:782px){.pwle-workspace .pwle-workspace__header{align-items:flex-start;flex-direction:column;padding:var(--pwl-space-4)}.pwle-workspace .pwle-react-shell{padding:var(--pwl-space-2)}.pwle-workspace .pwle-react-tablist{overflow-x:auto}.pwle-workspace .pwl-page-header__actions{width:100%}}
+
+
+/* 2.16.6 | Admin UI: equivalencia visual com PWL Encomendas v1.5.7.
+   Escopo administrativo, usando exclusivamente tokens do PWL Design System. */
+.pwle-workspace.pwl-ds {
+  width:100%; max-width:none; margin-inline:0; padding:var(--pwl-space-4);
+  background:var(--pwl-color-background); color:var(--pwl-color-text);
+}
+.pwle-workspace .pwle-workspace__header {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:var(--pwl-space-5); padding:var(--pwl-space-5);
+  margin:0 0 var(--pwl-space-page-gap);
+  background:var(--pwl-color-surface); border:1px solid var(--pwl-color-border);
+  border-radius:var(--pwl-radius-card); box-shadow:var(--pwl-shadow-admin);
+}
+.pwle-workspace .pwl-page-header__eyebrow {
+  display:block; margin:0 0 var(--pwl-space-2); color:var(--pwl-color-primary);
+  font:var(--pwl-font-caption); text-transform:uppercase; letter-spacing:var(--pwl-letter-spacing-wide,normal);
+}
+.pwle-workspace .pwl-page-header__title {
+  margin:0 0 var(--pwl-space-2); font:var(--pwl-font-heading-lg); color:var(--pwl-color-text);
+}
+.pwle-workspace .pwl-page-header__description { margin:0; font:var(--pwl-font-body); color:var(--pwl-color-text-secondary); }
+.pwle-workspace .pwle-version-card {
+  padding:var(--pwl-space-3) var(--pwl-space-4); min-width:var(--pwl-space-8);
+  border:1px solid var(--pwl-color-border); border-radius:var(--pwl-radius-md);
+  background:var(--pwl-color-surface); box-shadow:none;
+}
+.pwle-workspace .pwle-version-card span { text-transform:none; font:var(--pwl-font-small); color:var(--pwl-color-text-secondary); }
+.pwle-workspace .pwle-version-card strong { font:var(--pwl-font-body); color:var(--pwl-color-text); }
+/* A barra React continua montada para preservar a busca, mas recebe o mesmo
+   tratamento das abas PWL Encomendas, sem criar outra navegacao. */
+.pwle-workspace .pwle-react-shell {
+  display:flex; flex-direction:column; gap:var(--pwl-space-3);
+  padding:var(--pwl-space-2); margin:0 0 var(--pwl-space-page-gap);
+  border:1px solid var(--pwl-color-border); border-radius:var(--pwl-radius-card);
+  background:var(--pwl-color-surface); box-shadow:none;
+}
+.pwle-workspace .pwle-react-tablist,
+.pwle-workspace .pwle-workspace__tabs {
+  display:flex; width:100%; max-width:100%; align-items:center; flex-wrap:wrap;
+  gap:var(--pwl-space-2); padding:0; border:0; border-radius:0;
+  background:transparent; overflow-x:auto;
+}
+.pwle-workspace .pwle-react-tab,
+.pwle-workspace .pwle-workspace__tab {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:auto; min-width:0; padding:var(--pwl-space-3) var(--pwl-space-4);
+  border:0; border-radius:var(--pwl-radius-md); background:transparent;
+  color:var(--pwl-color-text); font:var(--pwl-font-tab); box-shadow:none;
+}
+.pwle-workspace .pwle-react-tab:hover,
+.pwle-workspace .pwle-workspace__tab:hover { background:var(--pwl-color-primary-soft); color:var(--pwl-color-primary); }
+.pwle-workspace .pwle-react-tab.is-active,
+.pwle-workspace .pwle-workspace__tab.is-selected {
+  background:var(--pwl-color-primary); color:var(--pwl-color-on-primary);
+  box-shadow:none;
+}
+.pwle-workspace .pwle-workspace__tab.is-selected strong { color:var(--pwl-color-on-primary); }
+.pwle-workspace .pwle-react-toolbar { padding:0 var(--pwl-space-3) var(--pwl-space-2); }
+.pwle-workspace .pwle-workspace__content { gap:var(--pwl-space-page-gap); }
+.pwle-workspace .pwle-workspace__content :is(.pwl-card,.pwle-card) {
+  background:var(--pwl-color-surface); border:1px solid var(--pwl-color-border);
+  border-radius:var(--pwl-radius-card); box-shadow:var(--pwl-shadow-admin);
+}
+.pwle-workspace .pwle-workspace__content :is(input,select,textarea) {
+  background:var(--pwl-color-control-surface); border-color:var(--pwl-color-control-border);
+  color:var(--pwl-color-text); border-radius:var(--pwl-radius-control);
+}
+@media(max-width:782px) {
+  .pwle-workspace.pwl-ds { padding:var(--pwl-space-3); }
+  .pwle-workspace .pwle-workspace__header { flex-direction:column; align-items:stretch; padding:var(--pwl-space-4); }
+  .pwle-workspace .pwl-page-header__actions { flex-wrap:wrap; }
+  .pwle-workspace .pwle-react-tablist { flex-wrap:nowrap; }
+}
