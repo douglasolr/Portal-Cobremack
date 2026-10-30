@@ -1,3 +1,7 @@
+## 2.16.11 (2026-10-30)
+- Remove o contorno destacado dos botoes da barra de abas administrativas.
+- Remove o cartao externo em volta do formulario, mantendo os cartoes internos.
+
 ## 2.16.10 (2026-10-30)
 - Remove o bloco redundante "Nova enquete / Criar enquete" acima do formulario.
 - Incrementa a versao do plugin; preserva as demais telas e o frontend publico.

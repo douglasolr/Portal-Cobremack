@@ -1,3 +1,6 @@
+## 2.16.11 | 2026-10-30
+- Abas sem contorno e editor sem cartao externo.
+
 ## 2.16.10 | 2026-10-30
 - Remove o cabecalho redundante do editor e atualiza a versao exibida.
 
