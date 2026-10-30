@@ -1,3 +1,7 @@
+## 2.16.14 (2026-10-30)
+- Mantém somente a ação Nova enquete no cabeçalho e remove a ação duplicada da lista.
+- Histórico de exclusões e detalhes de relatório começam recolhidos e podem ser expandidos.
+
 ## 2.16.13 (2026-10-30)
 - Remove titulos e descricoes redundantes das abas Enquetes, Relatorios e Sobre.
 - Remove a aba Nova enquete; criacao continua acessivel pelos botoes de acao.

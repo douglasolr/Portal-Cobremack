@@ -1,3 +1,6 @@
+## 2.16.14 | 2026-10-30
+- Simplifica ações do cabeçalho e recolhe detalhes dos relatórios por padrão.
+
 ## 2.16.13 | 2026-10-30
 - Navegacao com tres abas; titulos redundantes removidos; espacamento da aba Sobre ajustado.
 

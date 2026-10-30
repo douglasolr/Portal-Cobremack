@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PWL Enquetes v2.16.13
+ * Plugin Name: PWL Enquetes v2.16.14
  * Description: Crie enquetes internas e publique-as em qualquer pagina usando shortcode.
- * Version: 2.16.13
+ * Version: 2.16.14
  * Author: PWL
  * Text Domain: pwl-enquetes
  *
  * Changelog:
+ * 2.16.14 - Simplifica cabecalho, remove acao duplicada e inicia detalhes de relatorios recolhidos.
  * 2.16.13 - Remove titulos redundantes das abas, remove aba Nova enquete e separa cards Sobre.
  * 2.16.12 - Restaura os cantos arredondados da aba selecionada.
  * 2.16.11 - Remove contornos das abas e o cartao externo do editor.
@@ -62,7 +63,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class PWL_Enquetes {
-    const VERSION = '2.16.13';
+    const VERSION = '2.16.14';
     const DB_VERSION = '1.1.0';
     const DB_VERSION_OPTION = 'pwl_enquetes_db_version';
     const POST_TYPE = 'pwl_enquete';
@@ -644,15 +645,10 @@ final class PWL_Enquetes {
                     <p class="pwl-page-header__description">Crie enquetes, acompanhe participações e gerencie pesquisas internas.</p>
                 </div>
                 <div class="pwl-page-header__actions">
-                    <a class="pwl-button pwl-button--secondary" href="<?php echo esc_url($this->workspace_url('polls')); ?>">
-                        <span class="dashicons dashicons-list-view" aria-hidden="true"></span>
-                        Ver enquetes
-                    </a>
                     <a class="pwl-button pwl-button--primary" href="<?php echo esc_url($this->workspace_url('editor')); ?>">
                         <span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span>
                         Nova enquete
                     </a>
-                    <div class="pwle-version-card"><span>Status do módulo</span><strong>Em produção</strong></div>
                 </div>
             </header>
 
@@ -947,13 +943,6 @@ final class PWL_Enquetes {
 
     private function render_workspace_polls($polls) {
         ?>
-        <div class="pwle-list-actions">
-            <a class="pwl-button pwl-button--primary" href="<?php echo esc_url($this->workspace_url('editor')); ?>">
-                <span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span>
-                Criar enquete
-            </a>
-        </div>
-
         <section class="pwl-card pwle-card">
             <div class="pwl-card__header pwle-card__header">
                 <span class="pwle-card__icon dashicons dashicons-list-view" aria-hidden="true"></span>
@@ -1037,6 +1026,8 @@ final class PWL_Enquetes {
         </div>
 
         <?php if ($selected_poll) : ?>
+            <details class="pwle-report-disclosure">
+                <summary>Relatório detalhado: <?php echo esc_html(get_the_title($selected_poll)); ?></summary>
             <section class="pwl-card pwle-card pwle-report-detail">
                 <div class="pwl-card__header pwle-card__header pwle-card__header--between">
                     <div class="pwle-card__identity">
@@ -1053,6 +1044,7 @@ final class PWL_Enquetes {
                     <?php echo $this->get_admin_report_html($selected_poll->ID); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </div>
             </section>
+            </details>
         <?php endif; ?>
 
         <section class="pwl-card pwle-card">
@@ -2829,14 +2821,12 @@ CSS;
                 <?php endif; ?>
             <?php endif; ?>
 
-            <div class="pwl-admin-audit">
-                <div class="pwl-admin-audit__header">
-                    <div>
-                        <h3>Histórico de exclusões</h3>
-                        <p>Registro permanente das remoções realizadas neste relatório.</p>
-                    </div>
+            <details class="pwl-admin-audit">
+                <summary class="pwl-admin-audit__header">
+                    <strong>Histórico de exclusões</strong>
                     <span class="pwl-badge pwl-badge--neutral"><?php echo esc_html(number_format_i18n(count($deletion_logs))); ?> registro(s)</span>
-                </div>
+                </summary>
+                <p class="pwl-admin-audit__description">Registro permanente das remoções realizadas neste relatório.</p>
 
                 <?php if (empty($deletion_logs)) : ?>
                     <div class="pwl-admin-report__empty">Nenhum voto foi excluído desta enquete.</div>
@@ -2870,7 +2860,7 @@ CSS;
                         </table>
                     </div>
                 <?php endif; ?>
-            </div>
+            </details>
 
             <?php if ($can_delete_votes && !empty($rows)) : ?>
                 <div class="pwl-vote-delete-modal" id="pwlVoteDeleteModal" hidden>
@@ -3206,7 +3196,7 @@ CSS;
 .pwle-status-switch{width:100%;align-items:flex-start;margin-bottom:18px;padding:12px;border:1px solid var(--pwl-color-border,#e4e7ec);border-radius:10px;background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-status-switch strong{display:block;color:var(--pwl-color-text,#1f2937);font-size:12px}.pwle-status-switch small{display:block;margin-top:2px;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px;line-height:1.4}.pwle-publication-card h3{margin:8px 0 5px;color:var(--pwl-color-text,#1f2937);font-size:14px}.pwle-publication-card p{margin:0;color:var(--pwl-color-text-secondary,#667085);font-size:11px;line-height:1.5}.pwle-shortcode-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-top:12px}
 .pwle-savebar{position:sticky;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 16px;border:1px solid var(--pwl-color-border,#e4e7ec);border-radius:14px 14px 0 0;background:var(--pwl-color-surface,#fff);box-shadow:0 -8px 24px rgba(15,23,42,.06)}.pwle-savebar strong{display:block;color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-savebar span{display:block;margin-top:2px;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px}.pwle-savebar__actions{display:flex;gap:8px;align-items:center}
 .pwle-empty-state{display:flex;align-items:center;flex-direction:column;padding:46px 20px;text-align:center}.pwle-empty-state>.dashicons{width:48px;height:48px;margin-bottom:10px;color:var(--pwl-color-text-muted,#98a2b3);font-size:48px}.pwle-empty-state strong{color:var(--pwl-color-text,#1f2937);font-size:15px}.pwle-empty-state p{max-width:480px;margin:6px 0 16px;color:var(--pwl-color-text-secondary,#667085);font-size:12px}.pwle-table{min-width:1050px}.pwle-table__title strong,.pwle-table__title small{display:block}.pwle-table__title strong{color:var(--pwl-color-text,#1f2937)}.pwle-table__title small{margin-top:3px;color:var(--pwl-color-text-muted,#98a2b3);font-size:10px}.pwle-muted{color:var(--pwl-color-text-muted,#98a2b3)}.pwle-inline-code{display:flex;align-items:center;gap:5px}.pwle-inline-code code{white-space:nowrap;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px}.pwle-copy-icon{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:7px;background:transparent;color:var(--pwl-color-text-muted,#98a2b3);cursor:pointer}.pwle-copy-icon:hover{background:var(--pwl-color-primary-soft,#fff1e8);color:var(--pwl-color-primary,#ff5a00)}.pwle-copy-icon .dashicons{width:15px;height:15px;font-size:15px}.pwle-row-actions{display:flex;flex-wrap:wrap;gap:9px}.pwle-row-actions a{color:var(--pwl-color-primary,#ff5a00);font-size:11px;font-weight:700}.pwle-row-actions a.is-danger{color:var(--pwl-color-danger,#b42318)}
-.pwle-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.pwle-metrics article{padding:17px}.pwle-metrics span{display:block;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px;font-weight:600;text-transform:uppercase}.pwle-metrics strong{display:block;margin:7px 0 2px;color:var(--pwl-color-text,#1f2937);font-size:25px}.pwle-metrics small{color:var(--pwl-color-text-muted,#98a2b3);font-size:10px}.pwle-report-detail .pwl-results{margin-bottom:20px}.pwle-workspace .pwl-results__heading,.pwle-workspace .pwl-result__labels{display:flex;align-items:center;justify-content:space-between;gap:12px}.pwle-workspace .pwl-results__heading{margin-bottom:14px}.pwle-workspace .pwl-results__list{display:grid;gap:14px}.pwle-workspace .pwl-result__labels{margin-bottom:6px}.pwle-workspace .pwl-result__track{height:8px;overflow:hidden;border-radius:999px;background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-result__track span{display:block;height:100%;border-radius:inherit;background:var(--pwl-color-primary,#ff5a00)}.pwle-workspace .pwl-result small{display:block;margin-top:5px}.pwle-workspace .pwl-admin-report{border-top-color:var(--pwl-color-border,#e4e7ec)}.pwle-workspace .pwl-admin-report__header h3,.pwle-workspace .pwl-admin-report__metric strong,.pwle-workspace .pwl-results__heading strong,.pwle-workspace .pwl-result__labels span{color:var(--pwl-color-text,#1f2937)}.pwle-workspace .pwl-admin-report__header p,.pwle-workspace .pwl-admin-report__metric span,.pwle-workspace .pwl-results__heading span,.pwle-workspace .pwl-result small{color:var(--pwl-color-text-secondary,#667085)}.pwle-workspace .pwl-admin-report__metric,.pwle-workspace .pwl-admin-report__empty{border-color:var(--pwl-color-border,#e4e7ec);background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-admin-report__export{min-height:40px;padding:0 14px;border-color:var(--pwl-color-primary,#ff5a00);border-radius:8px;background:var(--pwl-color-primary,#ff5a00);color:#fff}.pwle-workspace .pwl-admin-report__table-wrap{border-color:var(--pwl-color-border,#e4e7ec)}
+.pwle-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.pwle-metrics article{padding:17px}.pwle-metrics span{display:block;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px;font-weight:600;text-transform:uppercase}.pwle-metrics strong{display:block;margin:7px 0 2px;color:var(--pwl-color-text,#1f2937);font-size:25px}.pwle-metrics small{color:var(--pwl-color-text-muted,#98a2b3);font-size:10px}.pwle-report-disclosure{margin:0 0 16px}.pwle-report-disclosure>summary{padding:13px 16px;border:1px solid #dfe5ee;border-radius:10px;background:#fff;color:var(--pwl-color-text,#1f2937);cursor:pointer;font-weight:700}.pwle-report-disclosure[open]>summary{margin-bottom:12px}.pwle-admin-audit__header{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer}.pwle-admin-audit__description{margin:8px 0 12px;color:var(--pwl-color-text-secondary,#667085)}.pwle-report-detail .pwl-results{margin-bottom:20px}.pwle-workspace .pwl-results__heading,.pwle-workspace .pwl-result__labels{display:flex;align-items:center;justify-content:space-between;gap:12px}.pwle-workspace .pwl-results__heading{margin-bottom:14px}.pwle-workspace .pwl-results__list{display:grid;gap:14px}.pwle-workspace .pwl-result__labels{margin-bottom:6px}.pwle-workspace .pwl-result__track{height:8px;overflow:hidden;border-radius:999px;background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-result__track span{display:block;height:100%;border-radius:inherit;background:var(--pwl-color-primary,#ff5a00)}.pwle-workspace .pwl-result small{display:block;margin-top:5px}.pwle-workspace .pwl-admin-report{border-top-color:var(--pwl-color-border,#e4e7ec)}.pwle-workspace .pwl-admin-report__header h3,.pwle-workspace .pwl-admin-report__metric strong,.pwle-workspace .pwl-results__heading strong,.pwle-workspace .pwl-result__labels span{color:var(--pwl-color-text,#1f2937)}.pwle-workspace .pwl-admin-report__header p,.pwle-workspace .pwl-admin-report__metric span,.pwle-workspace .pwl-results__heading span,.pwle-workspace .pwl-result small{color:var(--pwl-color-text-secondary,#667085)}.pwle-workspace .pwl-admin-report__metric,.pwle-workspace .pwl-admin-report__empty{border-color:var(--pwl-color-border,#e4e7ec);background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-admin-report__export{min-height:40px;padding:0 14px;border-color:var(--pwl-color-primary,#ff5a00);border-radius:8px;background:var(--pwl-color-primary,#ff5a00);color:#fff}.pwle-workspace .pwl-admin-report__table-wrap{border-color:var(--pwl-color-border,#e4e7ec)}
 .pwle-list-actions{display:flex;justify-content:flex-end;margin:0 0 14px}.pwle-about-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pwle-about-grid{margin-bottom:28px}.pwle-about-grid article{padding:17px}.pwle-about-grid span{display:block;margin-bottom:8px;color:var(--pwl-color-text-secondary,#667085);font-size:10px;text-transform:uppercase}.pwle-about-grid strong{color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-grid code{color:inherit}.pwle-about-notes h3{margin:0 0 5px;color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-notes p{margin:0 0 16px;color:var(--pwl-color-text-secondary,#667085);font-size:12px;line-height:1.6}.pwle-about-notes p:last-child{margin-bottom:0}
 body.cm-dark .pwle-savebar,body.pwl-dark .pwle-savebar,html[data-theme="dark"] .pwle-savebar,body[data-theme="dark"] .pwle-savebar{background:rgba(34,40,49,.96)}
 
