@@ -1,3 +1,6 @@
+## 2.16.15 | 2026-10-30
+- Corrige abertura do detalhe do relatório e conserva estado recolhido em refresh.
+
 ## 2.16.14 | 2026-10-30
 - Simplifica ações do cabeçalho e recolhe detalhes dos relatórios por padrão.
 

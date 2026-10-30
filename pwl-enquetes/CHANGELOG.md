@@ -1,3 +1,7 @@
+## 2.16.15 (2026-10-30)
+- Abrir relatório expande e posiciona o detalhe escolhido após a navegação.
+- Um refresh volta a deixar o detalhe recolhido; Histórico de Exclusões segue expansível e fechado por padrão.
+
 ## 2.16.14 (2026-10-30)
 - Mantém somente a ação Nova enquete no cabeçalho e remove a ação duplicada da lista.
 - Histórico de exclusões e detalhes de relatório começam recolhidos e podem ser expandidos.

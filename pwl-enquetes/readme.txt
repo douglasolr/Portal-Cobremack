@@ -3,13 +3,13 @@ Contributors: pwl
 Tags: enquete, intranet, votacao
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 2.16.14
+Stable tag: 2.16.15
 
 Plugin para criar e publicar enquetes internas na intranet PWL.
 
 == Instalacao ==
 1. No WordPress, acesse Plugins > Adicionar plugin > Enviar plugin.
-2. Selecione o arquivo pwl-enquetes-v2.16.14.zip.
+2. Selecione o arquivo pwl-enquetes-v2.16.15.zip.
 3. Instale e ative o plugin.
 4. No menu Plataforma > Enquetes, crie uma nova enquete e publique.
 5. Copie o shortcode exibido na lateral.

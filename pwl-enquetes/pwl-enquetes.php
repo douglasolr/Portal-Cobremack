@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PWL Enquetes v2.16.14
+ * Plugin Name: PWL Enquetes v2.16.15
  * Description: Crie enquetes internas e publique-as em qualquer pagina usando shortcode.
- * Version: 2.16.14
+ * Version: 2.16.15
  * Author: PWL
  * Text Domain: pwl-enquetes
  *
  * Changelog:
+ * 2.16.15 - Abre o relatório selecionado após navegação; mantém recolhido em refresh.
  * 2.16.14 - Simplifica cabecalho, remove acao duplicada e inicia detalhes de relatorios recolhidos.
  * 2.16.13 - Remove titulos redundantes das abas, remove aba Nova enquete e separa cards Sobre.
  * 2.16.12 - Restaura os cantos arredondados da aba selecionada.
@@ -63,7 +64,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class PWL_Enquetes {
-    const VERSION = '2.16.14';
+    const VERSION = '2.16.15';
     const DB_VERSION = '1.1.0';
     const DB_VERSION_OPTION = 'pwl_enquetes_db_version';
     const POST_TYPE = 'pwl_enquete';
@@ -1026,7 +1027,7 @@ final class PWL_Enquetes {
         </div>
 
         <?php if ($selected_poll) : ?>
-            <details class="pwle-report-disclosure">
+            <details class="pwle-report-disclosure" data-report-id="<?php echo esc_attr($selected_poll->ID); ?>">
                 <summary>Relatório detalhado: <?php echo esc_html(get_the_title($selected_poll)); ?></summary>
             <section class="pwl-card pwle-card pwle-report-detail">
                 <div class="pwl-card__header pwle-card__header pwle-card__header--between">
@@ -1074,7 +1075,7 @@ final class PWL_Enquetes {
                                 <td><span class="pwl-badge <?php echo $is_active ? 'pwl-badge--success' : 'pwl-badge--danger'; ?>"><?php echo $is_active ? 'Ativa' : 'Encerrada'; ?></span></td>
                                 <td><strong><?php echo esc_html(number_format_i18n($this->get_vote_count($poll->ID))); ?></strong></td>
                                 <td><?php echo esc_html(mysql2date('d/m/Y H:i', $poll->post_date)); ?></td>
-                                <td><div class="pwle-row-actions"><a href="<?php echo esc_url($this->workspace_url('reports', array('poll_id' => $poll->ID))); ?>">Abrir relatório</a><a href="<?php echo esc_url($export_url); ?>">Exportar CSV</a></div></td>
+                                <td><div class="pwle-row-actions"><a href="<?php echo esc_url($this->workspace_url('reports', array('poll_id' => $poll->ID))); ?>" data-open-report="<?php echo esc_attr($poll->ID); ?>">Abrir relatório</a><a href="<?php echo esc_url($export_url); ?>">Exportar CSV</a></div></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -3968,6 +3969,17 @@ CSS;
     "use strict";
     const root=document.querySelector('.pwle-workspace');
     if(!root)return;
+
+    const reportStorageKey='pwle-open-report-after-navigation';
+    try{
+        const pendingReport=sessionStorage.getItem(reportStorageKey);
+        if(pendingReport){
+            sessionStorage.removeItem(reportStorageKey);
+            const report=root.querySelector('[data-report-id="'+pendingReport+'"]');
+            if(report){report.open=true;window.requestAnimationFrame(function(){report.scrollIntoView({behavior:'smooth',block:'start'});});}
+        }
+    }catch(error){}
+    root.addEventListener('click',function(event){const trigger=event.target.closest('[data-open-report]');if(!trigger)return;try{sessionStorage.setItem(reportStorageKey,trigger.dataset.openReport);}catch(error){}});
 
     const tabLinks=Array.from(root.querySelectorAll('[data-pwle-tab]'));
     const panels=Array.from(root.querySelectorAll('[data-pwle-panel]'));
