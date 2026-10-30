@@ -1,3 +1,7 @@
+## 2.16.10 (2026-10-30)
+- Remove o bloco redundante "Nova enquete / Criar enquete" acima do formulario.
+- Incrementa a versao do plugin; preserva as demais telas e o frontend publico.
+
 ## 2.16.6 (2026-10-30)
 - Admin UI: alinhamento de cabeçalho, abas, cartões, formulários e espaçamentos ao PWL Encomendas v1.5.7, com tokens oficiais.
 - Sem alterações no Portal UI, na votação, nos contratos ou nos dados.

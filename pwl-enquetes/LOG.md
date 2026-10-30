@@ -1,3 +1,6 @@
+## 2.16.10 | 2026-10-30
+- Remove o cabecalho redundante do editor e atualiza a versao exibida.
+
 ## 2.16.6 | 2026-10-30
 - Conversão visual da Admin UI com referência direta ao código do PWL Encomendas v1.5.7 e PWL Design System v1.3.1.
 

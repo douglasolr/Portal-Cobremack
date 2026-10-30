@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PWL Enquetes
+ * Plugin Name: PWL Enquetes v2.16.10
  * Description: Crie enquetes internas e publique-as em qualquer pagina usando shortcode.
- * Version: 2.16.9
+ * Version: 2.16.10
  * Author: PWL
  * Text Domain: pwl-enquetes
  *
  * Changelog:
+ * 2.16.10 - Remove o cabecalho redundante do editor; atualiza identificacao da versao.
  * 2.16.1 - Votacao em tela unica com confirmacao modal; remove etapa de revisao e progresso.
  * 2.16.0 - Editor experimental React/Vite/TypeScript com shadcn/ui e tokens PWL; fallback PHP preservado.
  * 2.15.0 - Adiciona confirmacao React acessivel antes de remover alternativas, preservando gravacao PHP.
@@ -58,7 +59,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class PWL_Enquetes {
-    const VERSION = '2.16.9';
+    const VERSION = '2.16.10';
     const DB_VERSION = '1.1.0';
     const DB_VERSION_OPTION = 'pwl_enquetes_db_version';
     const POST_TYPE = 'pwl_enquete';
