@@ -725,17 +725,6 @@ final class PWL_Enquetes {
         $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'medium_large') : '';
         $persistent_until_vote = $edit_id ? ('1' === (string) get_post_meta($edit_id, '_pwl_persistent_until_vote', true)) : false;
         ?>
-        <section class="pwle-section-header pwl-section-header">
-            <div>
-                <span class="pwle-section-kicker"><?php echo $edit_id ? 'EDIÇÃO' : 'NOVA ENQUETE'; ?></span>
-                <h2 class="pwl-section-header__title"><?php echo $edit_id ? 'Editar enquete' : 'Criar enquete'; ?></h2>
-                <p class="pwl-section-header__description">Preencha a pergunta, defina as alternativas e escolha como a enquete será apresentada aos colaboradores.</p>
-            </div>
-            <?php if ($edit_id) : ?>
-                <span class="pwl-badge pwl-badge--primary">ID <?php echo esc_html($edit_id); ?></span>
-            <?php endif; ?>
-        </section>
-
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="pwle-editor" id="pwlPollWorkspaceForm">
             <input type="hidden" name="action" value="pwl_salvar_enquete_admin">
             <input type="hidden" name="poll_id" value="<?php echo esc_attr($edit_id); ?>">
