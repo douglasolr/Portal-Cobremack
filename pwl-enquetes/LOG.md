@@ -1,3 +1,6 @@
+## 2.16.12 | 2026-10-30
+- Corrige o arredondamento da aba selecionada na Admin UI.
+
 ## 2.16.11 | 2026-10-30
 - Abas sem contorno e editor sem cartao externo.
 

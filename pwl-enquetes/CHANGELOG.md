@@ -1,3 +1,6 @@
+## 2.16.12 (2026-10-30)
+- Corrige os cantos da aba selecionada, mantendo o destaque laranja arredondado.
+
 ## 2.16.11 (2026-10-30)
 - Remove o contorno destacado dos botoes da barra de abas administrativas.
 - Remove o cartao externo em volta do formulario, mantendo os cartoes internos.
