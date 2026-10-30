@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PWL Enquetes v2.16.12
+ * Plugin Name: PWL Enquetes v2.16.13
  * Description: Crie enquetes internas e publique-as em qualquer pagina usando shortcode.
- * Version: 2.16.12
+ * Version: 2.16.13
  * Author: PWL
  * Text Domain: pwl-enquetes
  *
  * Changelog:
+ * 2.16.13 - Remove titulos redundantes das abas, remove aba Nova enquete e separa cards Sobre.
  * 2.16.12 - Restaura os cantos arredondados da aba selecionada.
  * 2.16.11 - Remove contornos das abas e o cartao externo do editor.
  * 2.16.10 - Remove o cabecalho redundante do editor; atualiza identificacao da versao.
@@ -61,7 +62,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class PWL_Enquetes {
-    const VERSION = '2.16.12';
+    const VERSION = '2.16.13';
     const DB_VERSION = '1.1.0';
     const DB_VERSION_OPTION = 'pwl_enquetes_db_version';
     const POST_TYPE = 'pwl_enquete';
@@ -614,9 +615,9 @@ final class PWL_Enquetes {
         }
 
         $allowed_tabs = array('editor', 'polls', 'reports', 'about');
-        $active_tab = isset($_GET['tab']) ? sanitize_key(wp_unslash($_GET['tab'])) : 'editor';
+        $active_tab = isset($_GET['tab']) ? sanitize_key(wp_unslash($_GET['tab'])) : 'polls';
         if (!in_array($active_tab, $allowed_tabs, true)) {
-            $active_tab = 'editor';
+            $active_tab = 'polls';
         }
 
         $edit_id = isset($_GET['edit']) ? absint($_GET['edit']) : 0;
@@ -660,7 +661,6 @@ final class PWL_Enquetes {
             <nav class="pwl-tabs pwle-workspace__tabs" aria-label="Seções do módulo">
                 <?php
                 $tabs = array(
-                    'editor' => array('dashicons-edit', $edit_id ? 'Editar enquete' : 'Nova enquete', 'Pergunta, alternativas e publicação'),
                     'polls' => array('dashicons-list-view', 'Enquetes', 'Cadastros, status e shortcodes'),
                     'reports' => array('dashicons-chart-bar', 'Relatórios', 'Participações e exportações'),
                     'about' => array('dashicons-info-outline', 'Sobre', 'Versão, contratos e dependências'),
@@ -947,17 +947,12 @@ final class PWL_Enquetes {
 
     private function render_workspace_polls($polls) {
         ?>
-        <section class="pwl-section-header pwle-section-header">
-            <div>
-                <span class="pwle-section-kicker">ENQUETES CADASTRADAS</span>
-                <h2 class="pwl-section-header__title">Gerenciar enquetes</h2>
-                <p class="pwl-section-header__description">Consulte status, participação e shortcode. Edite uma enquete sem sair desta interface.</p>
-            </div>
+        <div class="pwle-list-actions">
             <a class="pwl-button pwl-button--primary" href="<?php echo esc_url($this->workspace_url('editor')); ?>">
                 <span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span>
                 Criar enquete
             </a>
-        </section>
+        </div>
 
         <section class="pwl-card pwle-card">
             <div class="pwl-card__header pwle-card__header">
@@ -1035,14 +1030,6 @@ final class PWL_Enquetes {
             $selected_poll = null;
         }
         ?>
-        <section class="pwl-section-header pwle-section-header">
-            <div>
-                <span class="pwle-section-kicker">RELATÓRIOS</span>
-                <h2 class="pwl-section-header__title">Resultados das enquetes</h2>
-                <p class="pwl-section-header__description">Acompanhe a participação, consulte as respostas identificadas e exporte os dados em CSV.</p>
-            </div>
-        </section>
-
         <div class="pwle-metrics">
             <article class="pwl-card"><span>Total de enquetes</span><strong><?php echo esc_html(number_format_i18n(count($polls))); ?></strong><small>Cadastros disponíveis</small></article>
             <article class="pwl-card"><span>Enquetes ativas</span><strong><?php echo esc_html(number_format_i18n($active_count)); ?></strong><small>Recebendo respostas</small></article>
@@ -1108,14 +1095,6 @@ final class PWL_Enquetes {
 
     private function render_workspace_about() {
         ?>
-        <section class="pwl-section-header pwle-section-header">
-            <div>
-                <span class="pwle-section-kicker">SOBRE O MÓDULO</span>
-                <h2 class="pwl-section-header__title">PWL Enquetes</h2>
-                <p class="pwl-section-header__description">Módulo corporativo para pesquisas internas autenticadas, publicação por shortcode e relatórios de participação.</p>
-            </div>
-        </section>
-
         <div class="pwle-about-grid">
             <article class="pwl-card"><span>Versão</span><strong><?php echo esc_html(self::VERSION); ?></strong></article>
             <article class="pwl-card"><span>Área</span><strong>Recursos Corporativos</strong></article>
@@ -3228,7 +3207,7 @@ CSS;
 .pwle-savebar{position:sticky;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 16px;border:1px solid var(--pwl-color-border,#e4e7ec);border-radius:14px 14px 0 0;background:var(--pwl-color-surface,#fff);box-shadow:0 -8px 24px rgba(15,23,42,.06)}.pwle-savebar strong{display:block;color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-savebar span{display:block;margin-top:2px;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px}.pwle-savebar__actions{display:flex;gap:8px;align-items:center}
 .pwle-empty-state{display:flex;align-items:center;flex-direction:column;padding:46px 20px;text-align:center}.pwle-empty-state>.dashicons{width:48px;height:48px;margin-bottom:10px;color:var(--pwl-color-text-muted,#98a2b3);font-size:48px}.pwle-empty-state strong{color:var(--pwl-color-text,#1f2937);font-size:15px}.pwle-empty-state p{max-width:480px;margin:6px 0 16px;color:var(--pwl-color-text-secondary,#667085);font-size:12px}.pwle-table{min-width:1050px}.pwle-table__title strong,.pwle-table__title small{display:block}.pwle-table__title strong{color:var(--pwl-color-text,#1f2937)}.pwle-table__title small{margin-top:3px;color:var(--pwl-color-text-muted,#98a2b3);font-size:10px}.pwle-muted{color:var(--pwl-color-text-muted,#98a2b3)}.pwle-inline-code{display:flex;align-items:center;gap:5px}.pwle-inline-code code{white-space:nowrap;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px}.pwle-copy-icon{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:7px;background:transparent;color:var(--pwl-color-text-muted,#98a2b3);cursor:pointer}.pwle-copy-icon:hover{background:var(--pwl-color-primary-soft,#fff1e8);color:var(--pwl-color-primary,#ff5a00)}.pwle-copy-icon .dashicons{width:15px;height:15px;font-size:15px}.pwle-row-actions{display:flex;flex-wrap:wrap;gap:9px}.pwle-row-actions a{color:var(--pwl-color-primary,#ff5a00);font-size:11px;font-weight:700}.pwle-row-actions a.is-danger{color:var(--pwl-color-danger,#b42318)}
 .pwle-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.pwle-metrics article{padding:17px}.pwle-metrics span{display:block;color:var(--pwl-color-text-secondary,#667085);font-size:10.5px;font-weight:600;text-transform:uppercase}.pwle-metrics strong{display:block;margin:7px 0 2px;color:var(--pwl-color-text,#1f2937);font-size:25px}.pwle-metrics small{color:var(--pwl-color-text-muted,#98a2b3);font-size:10px}.pwle-report-detail .pwl-results{margin-bottom:20px}.pwle-workspace .pwl-results__heading,.pwle-workspace .pwl-result__labels{display:flex;align-items:center;justify-content:space-between;gap:12px}.pwle-workspace .pwl-results__heading{margin-bottom:14px}.pwle-workspace .pwl-results__list{display:grid;gap:14px}.pwle-workspace .pwl-result__labels{margin-bottom:6px}.pwle-workspace .pwl-result__track{height:8px;overflow:hidden;border-radius:999px;background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-result__track span{display:block;height:100%;border-radius:inherit;background:var(--pwl-color-primary,#ff5a00)}.pwle-workspace .pwl-result small{display:block;margin-top:5px}.pwle-workspace .pwl-admin-report{border-top-color:var(--pwl-color-border,#e4e7ec)}.pwle-workspace .pwl-admin-report__header h3,.pwle-workspace .pwl-admin-report__metric strong,.pwle-workspace .pwl-results__heading strong,.pwle-workspace .pwl-result__labels span{color:var(--pwl-color-text,#1f2937)}.pwle-workspace .pwl-admin-report__header p,.pwle-workspace .pwl-admin-report__metric span,.pwle-workspace .pwl-results__heading span,.pwle-workspace .pwl-result small{color:var(--pwl-color-text-secondary,#667085)}.pwle-workspace .pwl-admin-report__metric,.pwle-workspace .pwl-admin-report__empty{border-color:var(--pwl-color-border,#e4e7ec);background:var(--pwl-color-surface-subtle,#f8fafc)}.pwle-workspace .pwl-admin-report__export{min-height:40px;padding:0 14px;border-color:var(--pwl-color-primary,#ff5a00);border-radius:8px;background:var(--pwl-color-primary,#ff5a00);color:#fff}.pwle-workspace .pwl-admin-report__table-wrap{border-color:var(--pwl-color-border,#e4e7ec)}
-.pwle-about-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pwle-about-grid article{padding:17px}.pwle-about-grid span{display:block;margin-bottom:8px;color:var(--pwl-color-text-secondary,#667085);font-size:10px;text-transform:uppercase}.pwle-about-grid strong{color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-grid code{color:inherit}.pwle-about-notes h3{margin:0 0 5px;color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-notes p{margin:0 0 16px;color:var(--pwl-color-text-secondary,#667085);font-size:12px;line-height:1.6}.pwle-about-notes p:last-child{margin-bottom:0}
+.pwle-list-actions{display:flex;justify-content:flex-end;margin:0 0 14px}.pwle-about-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pwle-about-grid{margin-bottom:28px}.pwle-about-grid article{padding:17px}.pwle-about-grid span{display:block;margin-bottom:8px;color:var(--pwl-color-text-secondary,#667085);font-size:10px;text-transform:uppercase}.pwle-about-grid strong{color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-grid code{color:inherit}.pwle-about-notes h3{margin:0 0 5px;color:var(--pwl-color-text,#1f2937);font-size:13px}.pwle-about-notes p{margin:0 0 16px;color:var(--pwl-color-text-secondary,#667085);font-size:12px;line-height:1.6}.pwle-about-notes p:last-child{margin-bottom:0}
 body.cm-dark .pwle-savebar,body.pwl-dark .pwle-savebar,html[data-theme="dark"] .pwle-savebar,body[data-theme="dark"] .pwle-savebar{background:rgba(34,40,49,.96)}
 
 .pwle-workspace .pwle-option-row {

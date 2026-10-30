@@ -1,3 +1,8 @@
+## 2.16.13 (2026-10-30)
+- Remove titulos e descricoes redundantes das abas Enquetes, Relatorios e Sobre.
+- Remove a aba Nova enquete; criacao continua acessivel pelos botoes de acao.
+- Adiciona espaco entre os cards de resumo e compatibilidade na aba Sobre.
+
 ## 2.16.12 (2026-10-30)
 - Corrige os cantos da aba selecionada, mantendo o destaque laranja arredondado.
 

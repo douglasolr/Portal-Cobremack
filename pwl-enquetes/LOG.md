@@ -1,3 +1,6 @@
+## 2.16.13 | 2026-10-30
+- Navegacao com tres abas; titulos redundantes removidos; espacamento da aba Sobre ajustado.
+
 ## 2.16.12 | 2026-10-30
 - Corrige o arredondamento da aba selecionada na Admin UI.
 
