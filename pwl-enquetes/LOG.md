@@ -1,3 +1,6 @@
+## 2.16.16 | 2026-10-30
+- Relatório agora expande abaixo do registro selecionado na tabela.
+
 ## 2.16.15 | 2026-10-30
 - Corrige abertura do detalhe do relatório e conserva estado recolhido em refresh.
 

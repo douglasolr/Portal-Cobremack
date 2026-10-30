@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: PWL Enquetes v2.16.15
+ * Plugin Name: PWL Enquetes v2.16.16
  * Description: Crie enquetes internas e publique-as em qualquer pagina usando shortcode.
- * Version: 2.16.15
+ * Version: 2.16.16
  * Author: PWL
  * Text Domain: pwl-enquetes
  *
  * Changelog:
+ * 2.16.16 - Posiciona o detalhe do relatorio abaixo da linha correspondente na tabela.
  * 2.16.15 - Abre o relatório selecionado após navegação; mantém recolhido em refresh.
  * 2.16.14 - Simplifica cabecalho, remove acao duplicada e inicia detalhes de relatorios recolhidos.
  * 2.16.13 - Remove titulos redundantes das abas, remove aba Nova enquete e separa cards Sobre.
@@ -64,7 +65,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class PWL_Enquetes {
-    const VERSION = '2.16.15';
+    const VERSION = '2.16.16';
     const DB_VERSION = '1.1.0';
     const DB_VERSION_OPTION = 'pwl_enquetes_db_version';
     const POST_TYPE = 'pwl_enquete';
@@ -1026,28 +1027,6 @@ final class PWL_Enquetes {
             <article class="pwl-card"><span>Participações</span><strong><?php echo esc_html(number_format_i18n($total_votes)); ?></strong><small>Votos registrados</small></article>
         </div>
 
-        <?php if ($selected_poll) : ?>
-            <details class="pwle-report-disclosure" data-report-id="<?php echo esc_attr($selected_poll->ID); ?>">
-                <summary>Relatório detalhado: <?php echo esc_html(get_the_title($selected_poll)); ?></summary>
-            <section class="pwl-card pwle-card pwle-report-detail">
-                <div class="pwl-card__header pwle-card__header pwle-card__header--between">
-                    <div class="pwle-card__identity">
-                        <span class="pwle-card__icon dashicons dashicons-chart-bar" aria-hidden="true"></span>
-                        <div>
-                            <h3 class="pwl-card__title"><?php echo esc_html(get_the_title($selected_poll)); ?></h3>
-                            <p class="pwl-card__description">Relatório detalhado da enquete selecionada.</p>
-                        </div>
-                    </div>
-                    <a class="pwl-button pwl-button--secondary pwl-button--compact" href="<?php echo esc_url($this->workspace_url('reports')); ?>">Fechar relatório</a>
-                </div>
-                <div class="pwl-card__body">
-                    <?php echo $this->get_results_html($selected_poll->ID, true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                    <?php echo $this->get_admin_report_html($selected_poll->ID); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                </div>
-            </section>
-            </details>
-        <?php endif; ?>
-
         <section class="pwl-card pwle-card">
             <div class="pwl-card__header pwle-card__header">
                 <span class="pwle-card__icon dashicons dashicons-chart-pie" aria-hidden="true"></span>
@@ -1077,6 +1056,29 @@ final class PWL_Enquetes {
                                 <td><?php echo esc_html(mysql2date('d/m/Y H:i', $poll->post_date)); ?></td>
                                 <td><div class="pwle-row-actions"><a href="<?php echo esc_url($this->workspace_url('reports', array('poll_id' => $poll->ID))); ?>" data-open-report="<?php echo esc_attr($poll->ID); ?>">Abrir relatório</a><a href="<?php echo esc_url($export_url); ?>">Exportar CSV</a></div></td>
                             </tr>
+                            <?php if ($selected_poll && absint($selected_poll->ID) === absint($poll->ID)) : ?>
+                                <tr class="pwle-report-row"><td colspan="5">
+                                    <details class="pwle-report-disclosure" data-report-id="<?php echo esc_attr($selected_poll->ID); ?>">
+                                        <summary>Relatório detalhado: <?php echo esc_html(get_the_title($selected_poll)); ?></summary>
+                                        <section class="pwl-card pwle-card pwle-report-detail">
+                <div class="pwl-card__header pwle-card__header pwle-card__header--between">
+                    <div class="pwle-card__identity">
+                        <span class="pwle-card__icon dashicons dashicons-chart-bar" aria-hidden="true"></span>
+                        <div>
+                            <h3 class="pwl-card__title"><?php echo esc_html(get_the_title($selected_poll)); ?></h3>
+                            <p class="pwl-card__description">Relatório detalhado da enquete selecionada.</p>
+                        </div>
+                    </div>
+                    <a class="pwl-button pwl-button--secondary pwl-button--compact" href="<?php echo esc_url($this->workspace_url('reports')); ?>">Fechar relatório</a>
+                </div>
+                <div class="pwl-card__body">
+                    <?php echo $this->get_results_html($selected_poll->ID, true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    <?php echo $this->get_admin_report_html($selected_poll->ID); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                </div>
+                                        </section>
+                                    </details>
+                                </td></tr>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>

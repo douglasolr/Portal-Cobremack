@@ -1,3 +1,7 @@
+## 2.16.16 (2026-10-30)
+- Exibe o detalhe expandido logo abaixo da linha da enquete selecionada na tabela de relatórios.
+- Mantém o detalhe fechado por padrão em atualizações da página.
+
 ## 2.16.15 (2026-10-30)
 - Abrir relatório expande e posiciona o detalhe escolhido após a navegação.
 - Um refresh volta a deixar o detalhe recolhido; Histórico de Exclusões segue expansível e fechado por padrão.
