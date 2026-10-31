@@ -1,3 +1,6 @@
+## 1.5.11 | 31/10/2026
+- Teams recebe linhas em HTML com negrito; removido Markdown que aparecia como asteriscos no chat.
+
 ## 1.5.10 | 31/10/2026
 - Workflow do Teams recebe a encomenda com título e rótulos em negrito, cada campo em sua própria linha.
 

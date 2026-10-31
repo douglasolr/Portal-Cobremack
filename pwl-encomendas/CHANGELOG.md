@@ -1,3 +1,6 @@
+## 1.5.11 (2026-10-31)
+- Corrigido o formato da mensagem do Teams para usar HTML simples com quebras `<br>` e negrito `<strong>`, em vez de Markdown literal.
+
 ## 1.5.10 (2026-10-31)
 - Formatada a mensagem enviada ao workflow do Teams com título, campos em linhas separadas e rótulos em negrito.
 

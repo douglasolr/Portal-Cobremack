@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PWL Encomendas
  * Description: Registro, avisos e controle de retirada de encomendas recebidas na Portaria.
- * Version: 1.5.10
+ * Version: 1.5.11
  * Author: PWL
  * Requires at least: 6.2
  * Requires PHP: 7.4
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class PWL_Encomendas {
-    const VERSION    = '1.5.10';
+    const VERSION    = '1.5.11';
     const DB_VERSION = '1.9.0';
     const MODULE_ID  = 'encomendas';
     const CAP_VIEW   = 'encomendas.view';
@@ -2602,20 +2602,21 @@ final class PWL_Encomendas {
         if ( '' === $teams_heading ) { $teams_heading = 'Encomenda recebida na Portaria'; }
         if ( '!' !== substr( $teams_heading, -1 ) ) { $teams_heading .= '!'; }
         $teams_lines = array(
-            '**' . sanitize_text_field( $teams_heading ) . '**',
-            '**Remetente:** ' . sanitize_text_field( (string) $row->sender ),
-            '**Código interno da Encomenda:** ' . sanitize_text_field( $row->package_code ?: $this->build_package_code( $row->id, $row->received_at ) ),
+            '<strong>' . esc_html( sanitize_text_field( $teams_heading ) ) . '</strong>',
+            '<strong>Remetente:</strong> ' . esc_html( sanitize_text_field( (string) $row->sender ) ),
+            '<strong>Código interno da Encomenda:</strong> ' . esc_html( sanitize_text_field( $row->package_code ?: $this->build_package_code( $row->id, $row->received_at ) ) ),
         );
-        if ( $row->description ) { $teams_lines[] = '**Descrição:** ' . sanitize_text_field( (string) $row->description ); }
-        if ( $row->tracking_code ) { $teams_lines[] = '**Código de Rastreio:** ' . sanitize_text_field( (string) $row->tracking_code ); }
-        $teams_lines[] = '**Procure a Portaria da unidade.**';
-        $teams_lines[] = '**Ramal da Portaria:** 285 / 286';
+        if ( $row->description ) { $teams_lines[] = '<strong>Descrição:</strong> ' . esc_html( sanitize_text_field( (string) $row->description ) ); }
+        if ( $row->tracking_code ) { $teams_lines[] = '<strong>Código de Rastreio:</strong> ' . esc_html( sanitize_text_field( (string) $row->tracking_code ) ); }
+        $teams_lines[] = '<strong>Procure a Portaria da unidade.</strong>';
+        $teams_lines[] = '<strong>Ramal da Portaria:</strong> 285 / 286';
+        $teams_message = wp_kses( implode( '<br>', $teams_lines ), array( 'br' => array(), 'strong' => array() ) );
         $payload = array(
             'recipient_email' => sanitize_email( $row->recipient_email ),
             'recipient_name' => sanitize_text_field( $row->recipient_name ),
             'title' => sanitize_text_field( $title ),
             'package_code' => sanitize_text_field( $row->package_code ?: $this->build_package_code( $row->id, $row->received_at ) ),
-            'message' => sanitize_textarea_field( implode( "\n", $teams_lines ) ),
+            'message' => $teams_message,
         );
         $response = wp_remote_post( $url, array(
             'timeout' => 15,
