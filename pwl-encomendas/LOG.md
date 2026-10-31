@@ -1,3 +1,6 @@
+## 1.5.10 | 31/10/2026
+- Workflow do Teams recebe a encomenda com título e rótulos em negrito, cada campo em sua própria linha.
+
 ## 1.5.9 | 31/10/2026
 - Aplicados cantos arredondados ao cartão dos e-mails de encomendas nos envios centralizados e alternativos.
 

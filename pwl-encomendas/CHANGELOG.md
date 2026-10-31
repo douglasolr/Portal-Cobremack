@@ -1,3 +1,6 @@
+## 1.5.10 (2026-10-31)
+- Formatada a mensagem enviada ao workflow do Teams com título, campos em linhas separadas e rótulos em negrito.
+
 ## 1.5.9 (2026-10-31)
 - Arredondados os cantos do cartão de e-mail de encomendas no renderizador central e no envio alternativo.
 

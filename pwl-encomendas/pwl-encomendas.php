@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PWL Encomendas
  * Description: Registro, avisos e controle de retirada de encomendas recebidas na Portaria.
- * Version: 1.5.9
+ * Version: 1.5.10
  * Author: PWL
  * Requires at least: 6.2
  * Requires PHP: 7.4
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class PWL_Encomendas {
-    const VERSION    = '1.5.9';
+    const VERSION    = '1.5.10';
     const DB_VERSION = '1.9.0';
     const MODULE_ID  = 'encomendas';
     const CAP_VIEW   = 'encomendas.view';
@@ -2420,7 +2420,7 @@ final class PWL_Encomendas {
                 $status = 'skipped';
                 $detail = 'E-mail corporativo ausente ou inválido para localizar a conta do Teams.';
             } elseif ( get_option( 'pwl_encomendas_teams_webhook_url', '' ) ) {
-                $response = $this->send_teams_flow_message( $row, $notice_title, $message );
+                $response = $this->send_teams_flow_message( $row, $notice_title );
                 $status = $response['ok'] ? 'accepted' : 'failed';
                 $detail = $response['detail'];
                 $this->update_channel( $id, 'teams_status', $status );
@@ -2593,17 +2593,29 @@ final class PWL_Encomendas {
         return array( 'ok' => false, 'detail' => 'A API recusou o envio. Confira a configuração e o modelo aprovado.', 'id' => '' );
     }
 
-    private function send_teams_flow_message( $row, $title, $message ) {
+    private function send_teams_flow_message( $row, $title ) {
         $url = (string) get_option( 'pwl_encomendas_teams_webhook_url', '' );
         if ( ! $url || ! $this->valid_teams_webhook_url( $url ) ) {
             return array( 'ok' => false, 'detail' => 'Webhook do Microsoft Teams inválido ou não configurado.', 'id' => '' );
         }
+        $teams_heading = trim( (string) $title );
+        if ( '' === $teams_heading ) { $teams_heading = 'Encomenda recebida na Portaria'; }
+        if ( '!' !== substr( $teams_heading, -1 ) ) { $teams_heading .= '!'; }
+        $teams_lines = array(
+            '**' . sanitize_text_field( $teams_heading ) . '**',
+            '**Remetente:** ' . sanitize_text_field( (string) $row->sender ),
+            '**Código interno da Encomenda:** ' . sanitize_text_field( $row->package_code ?: $this->build_package_code( $row->id, $row->received_at ) ),
+        );
+        if ( $row->description ) { $teams_lines[] = '**Descrição:** ' . sanitize_text_field( (string) $row->description ); }
+        if ( $row->tracking_code ) { $teams_lines[] = '**Código de Rastreio:** ' . sanitize_text_field( (string) $row->tracking_code ); }
+        $teams_lines[] = '**Procure a Portaria da unidade.**';
+        $teams_lines[] = '**Ramal da Portaria:** 285 / 286';
         $payload = array(
             'recipient_email' => sanitize_email( $row->recipient_email ),
             'recipient_name' => sanitize_text_field( $row->recipient_name ),
             'title' => sanitize_text_field( $title ),
             'package_code' => sanitize_text_field( $row->package_code ?: $this->build_package_code( $row->id, $row->received_at ) ),
-            'message' => sanitize_textarea_field( $message ),
+            'message' => sanitize_textarea_field( implode( "\n", $teams_lines ) ),
         );
         $response = wp_remote_post( $url, array(
             'timeout' => 15,
