@@ -1,3 +1,6 @@
+## 1.5.9 | 31/10/2026
+- Aplicados cantos arredondados ao cartão dos e-mails de encomendas nos envios centralizados e alternativos.
+
 ## 1.5.8 | 31/10/2026
 - Alinhado o rótulo de descrição da notificação de encomenda ao parser do modelo central de e-mail.
 - Preservados os valores de `description` e `tracking_code` nos envios centralizados e alternativos.

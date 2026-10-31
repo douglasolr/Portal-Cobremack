@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PWL Encomendas
  * Description: Registro, avisos e controle de retirada de encomendas recebidas na Portaria.
- * Version: 1.5.8
+ * Version: 1.5.9
  * Author: PWL
  * Requires at least: 6.2
  * Requires PHP: 7.4
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class PWL_Encomendas {
-    const VERSION    = '1.5.8';
+    const VERSION    = '1.5.9';
     const DB_VERSION = '1.9.0';
     const MODULE_ID  = 'encomendas';
     const CAP_VIEW   = 'encomendas.view';
@@ -2445,12 +2445,12 @@ final class PWL_Encomendas {
             : '<div style="font-size:20px;line-height:1.3;font-weight:800;color:#101828;">' . esc_html( $brand ) . '</div>';
         $html = '<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;color:#344054;">'
             . '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background:#f4f6f8;padding:26px 12px;"><tr><td align="center">'
-            . '<table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #e6eaf0;border-radius:16px;overflow:hidden;">'
-            . '<tr><td style="height:5px;background:' . esc_attr( $color ) . ';font-size:0;line-height:0;">&nbsp;</td></tr>'
+            . '<table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #e6eaf0;border-collapse:separate;border-spacing:0;border-radius:16px!important;overflow:hidden;">'
+            . '<tr><td style="height:5px;background:' . esc_attr( $color ) . ';font-size:0;line-height:0;border-radius:16px 16px 0 0;">&nbsp;</td></tr>'
             . '<tr><td style="padding:28px 32px 22px;">' . $brand_markup . '</td></tr>'
             . '<tr><td style="padding:0 32px 8px;"><div style="font-size:13px;color:#667085;margin-bottom:10px;">Olá, ' . esc_html( $row->recipient_name ) . '.</div><h1 style="margin:0;font-size:24px;line-height:1.35;color:#101828;font-weight:800;">' . esc_html( $subject ) . '</h1></td></tr>'
             . '<tr><td style="padding:26px 32px 30px;font-size:15px;line-height:1.75;color:#344054;">' . $this->format_package_email_message( $message ) . '</td></tr>'
-            . '<tr><td style="padding:16px 32px;background:#fafbfc;border-top:1px solid #eef1f5;font-size:11px;line-height:1.55;color:#667085;">' . nl2br( esc_html( $footer ) ) . '</td></tr>'
+            . '<tr><td style="padding:16px 32px;background:#fafbfc;border-top:1px solid #eef1f5;font-size:11px;line-height:1.55;color:#667085;border-radius:0 0 16px 16px;">' . nl2br( esc_html( $footer ) ) . '</td></tr>'
             . '</table></td></tr></table></body></html>';
         $prefix = sanitize_text_field( get_option( 'pwl_notificacoes_email_subject_prefix', $brand ) );
         $email_subject = ( $prefix ? '[' . $prefix . '] ' : '' ) . $subject;
@@ -2480,8 +2480,36 @@ final class PWL_Encomendas {
         return $html;
     }
 
+    private function round_package_email_card( $html ) {
+        return preg_replace_callback( '/<table\b(?=[^>]*\bwidth=["\']?640(?:["\']|\s|>))[^>]*>/i', function( $matches ) {
+            $tag = $matches[0];
+            $style = '';
+            if ( preg_match( '/\sstyle=(["\'])(.*?)\1/i', $tag, $style_match ) ) { $style = $style_match[2]; }
+            $rules = array(
+                'border-collapse' => 'separate',
+                'border-spacing'  => '0',
+                'border-radius'   => '16px!important',
+                'overflow'        => 'hidden',
+            );
+            foreach ( $rules as $property => $value ) {
+                $pattern = '/(?:^|;)\s*' . preg_quote( $property, '/' ) . '\s*:[^;]*/i';
+                if ( preg_match( $pattern, $style ) ) {
+                    $style = preg_replace( $pattern, ';' . $property . ':' . $value, $style, 1 );
+                } else {
+                    $style .= ';' . $property . ':' . $value;
+                }
+            }
+            $style = trim( $style, '; ' );
+            if ( preg_match( '/\sstyle=(["\'])(.*?)\1/i', $tag ) ) {
+                return preg_replace( '/\sstyle=(["\'])(.*?)\1/i', ' style="' . esc_attr( $style ) . '"', $tag, 1 );
+            }
+            return preg_replace( '/<table\b/i', '<table style="' . esc_attr( $style ) . '"', $tag, 1 );
+        }, (string) $html, 1 );
+    }
+
     public function limit_notification_email_logo( $html, $notification = null, $user = null, $settings = array() ) {
         if ( is_object( $notification ) && ! empty( $notification->title ) && ( false !== stripos( $notification->title, 'Encomenda recebida na Portaria' ) || false !== stripos( $notification->title, 'Encomenda retirada na Portaria' ) ) ) {
+            $html = $this->round_package_email_card( $html );
             $title = esc_html( (string) $notification->title );
             $html = preg_replace_callback( '/(<body\b[^>]*>)(.*?)(<table\b)/is', function( $body_parts ) use ( $title ) {
                 $outside_title = '~<(p|div|span)\b[^>]*>\s*' . preg_quote( $title, '~' ) . '\.?\s*</\1>|' . preg_quote( $title, '~' ) . '\.?~i';

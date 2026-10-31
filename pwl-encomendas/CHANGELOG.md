@@ -1,3 +1,6 @@
+## 1.5.9 (2026-10-31)
+- Arredondados os cantos do cartão de e-mail de encomendas no renderizador central e no envio alternativo.
+
 ## 1.5.8 (2026-10-31)
 - Corrigido o preenchimento dos tokens de descrição e rastreio no e-mail de encomendas; o rótulo da descrição agora corresponde ao modelo central.
 - Os envios alternativos reconhecem os rótulos `Descrição:` e `Embalagem:` e mantêm os valores cadastrados.
