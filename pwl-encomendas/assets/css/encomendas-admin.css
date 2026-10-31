@@ -1,0 +1,576 @@
+.pwl-ui-report-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--pwl-ui-space-3);
+    margin-block-start: var(--pwl-ui-gap);
+}
+
+.pwl-ui .pwl-encomendas-admin-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pwl-ui .pwl-encomendas-admin-stats > .pwl-ui-card {
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-admin-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-admin-list > .pwl-ui-card,
+.pwl-ui .pwl-encomendas-admin-list .pwl-ui-table-wrap {
+    width: 100%;
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table {
+    width: 100%;
+    min-width: 1200px;
+    table-layout: fixed;
+    font-size: calc(var(--pwl-ui-font-small) - 1.5px);
+}
+
+.pwl-ui .pwl-encomendas-admin-filters {
+    display: grid;
+    grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(150px, 1fr));
+    align-items: end;
+    gap: var(--pwl-ui-space-3);
+    margin-block-end: var(--pwl-ui-space-3);
+}
+
+.pwl-ui .pwl-encomendas-admin-filters > * {
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-admin-date[hidden] {
+    display: none;
+}
+
+.pwl-ui .pwl-encomendas-table th,
+.pwl-ui .pwl-encomendas-table td {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(1), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(1) { width: 3%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(2), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(2) { width: 11%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(3), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(3) { width: 9%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(4), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(4) { width: 12%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(5), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(5) { width: 8%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(6), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(6) { width: 5%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(7), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(7) { width: 8%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(8), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(8) { width: 7%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(9), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(9) { width: 8%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(10), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(10) { width: 8%; }
+.pwl-ui .pwl-encomendas-table--deletable th:nth-child(11), .pwl-ui .pwl-encomendas-table--deletable td:nth-child(11) { width: 21%; }
+
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(1), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(1) { width: 12%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(2), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(2) { width: 9%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(3), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(3) { width: 14%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(4), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(4) { width: 9%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(5), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(5) { width: 6%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(6), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(6) { width: 9%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(7), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(7) { width: 8%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(8), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(8) { width: 10%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(9), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(9) { width: 8%; }
+.pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) th:nth-child(10), .pwl-ui .pwl-encomendas-table:not(.pwl-encomendas-table--deletable) td:nth-child(10) { width: 15%; }
+
+.pwl-ui .pwl-encomendas-table-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--pwl-ui-space-2);
+}
+
+.pwl-ui .pwl-encomendas-table-actions > form {
+    display: flex;
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+}
+
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table th,
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table td,
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table .pwl-encomendas-sort,
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table .pwl-ui-badge {
+    font-size: calc(var(--pwl-ui-font-small) - 1.5px);
+}
+
+.pwl-ui .pwl-encomendas-subtabs {
+    margin-block: var(--pwl-ui-space-3) var(--pwl-ui-space-4);
+    background: var(--pwl-ui-surface, var(--pwl-ui-panel));
+}
+
+.pwl-ui .pwl-encomendas-about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--pwl-ui-space-3);
+    margin-block-end: var(--pwl-ui-space-4);
+}
+
+.pwl-ui .pwl-encomendas-about-grid > div,
+.pwl-ui .pwl-encomendas-changelog,
+.pwl-ui .pwl-encomendas-changelog details {
+    min-width: 0;
+    padding: var(--pwl-ui-space-3);
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: var(--pwl-ui-control-radius);
+    background: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-encomendas-about-grid > div {
+    display: grid;
+    gap: var(--pwl-ui-space-1);
+}
+
+.pwl-ui .pwl-encomendas-changelog summary {
+    color: var(--pwl-ui-ink);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pwl-ui .pwl-encomendas-changelog-content {
+    display: grid;
+    gap: var(--pwl-ui-space-2);
+    margin-block-start: var(--pwl-ui-space-3);
+}
+
+.pwl-ui .pwl-encomendas-changelog details ul {
+    margin-block: var(--pwl-ui-space-3) 0;
+    padding-inline-start: 1.25rem;
+}
+
+.pwl-ui .pwl-encomendas-changelog details li + li {
+    margin-block-start: var(--pwl-ui-space-2);
+}
+
+@media (max-width: 1000px) {
+    .pwl-ui .pwl-encomendas-admin-stats,
+    .pwl-ui .pwl-encomendas-about-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pwl-ui .pwl-encomendas-advance-notice-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-ui .pwl-encomendas-admin-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .pwl-ui .pwl-encomendas-admin-stats,
+    .pwl-ui .pwl-encomendas-about-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-ui .pwl-encomendas-admin-filters {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.pwl-ui select.pwl-ui-control,
+.pwl-ui select.pwl-ui-control option {
+    color: var(--pwl-ui-ink) !important;
+}
+
+.pwl-ui .pwl-encomendas-pickup-fields {
+    display: grid;
+    gap: var(--pwl-ui-gap);
+    margin-block-start: var(--pwl-ui-gap);
+}
+
+.pwl-ui .pwl-encomendas-pickup-fields[hidden] {
+    display: none;
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pwl-ui-space-3);
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-grid > .pwl-ui-field {
+    min-width: 0;
+    margin-block-end: 0;
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-description,
+.pwl-ui .pwl-encomendas-advance-notice-password,
+.pwl-ui .pwl-encomendas-advance-notice-submit {
+    grid-column: 1 / -1;
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-description textarea {
+    min-height: var(--pwl-ui-control-height);
+}
+
+.pwl-ui .pwl-encomendas-password-control {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--pwl-ui-space-2);
+}
+
+.pwl-ui .pwl-encomendas-password-control .pwl-ui-control {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.pwl-ui .pwl-encomendas-password-control .pwl-ui-button {
+    flex: 0 0 auto;
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-password small {
+    display: block;
+    margin-block-start: var(--pwl-ui-space-2);
+    color: var(--pwl-ui-muted);
+}
+
+.pwl-ui .pwl-encomendas-advance-notice-submit .pwl-ui-button {
+    width: 100%;
+}
+
+.pwl-ui form button.pwl-encomendas-action-button {
+    box-sizing: border-box;
+    height: var(--pwl-ui-control-height) !important;
+    min-height: var(--pwl-ui-control-height) !important;
+    padding-block: 0 !important;
+    font-family: var(--pwl-ui-font-family) !important;
+    font-size: var(--pwl-ui-font-control) !important;
+    font-weight: 600 !important;
+    letter-spacing: normal !important;
+    text-transform: uppercase !important;
+}
+
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table form button.pwl-encomendas-action-button {
+    height: calc(var(--pwl-ui-control-height) - var(--pwl-ui-space-2)) !important;
+    min-height: calc(var(--pwl-ui-control-height) - var(--pwl-ui-space-2)) !important;
+    padding-inline: var(--pwl-ui-space-2) !important;
+    font-size: calc(var(--pwl-ui-font-control) - 1.5px) !important;
+}
+
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table td:last-child > form {
+    display: inline-flex;
+    width: auto;
+    margin: 0 var(--pwl-ui-space-2) 0 0;
+    vertical-align: middle;
+}
+
+.pwl-ui .pwl-encomendas-admin-list .pwl-encomendas-table td:last-child > form button {
+    white-space: nowrap;
+}
+
+.pwl-ui .pwl-encomendas-bulk-delete {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--pwl-ui-space-3);
+    margin-block-end: var(--pwl-ui-gap);
+    padding: var(--pwl-ui-space-4);
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: var(--pwl-ui-control-radius);
+    background: var(--pwl-ui-panel);
+    color: var(--pwl-ui-ink);
+}
+
+.pwl-ui .pwl-encomendas-meta-guidance {
+    margin-block: var(--pwl-ui-gap);
+}
+
+.pwl-ui .pwl-encomendas-meta-output {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    padding: var(--pwl-ui-space-3);
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: var(--pwl-ui-control-radius);
+    background: var(--pwl-ui-panel);
+    color: var(--pwl-ui-ink);
+    font-family: var(--pwl-ui-font-family);
+}
+
+.pwl-ui .pwl-encomendas-group-members {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--pwl-ui-gap);
+    max-height: 320px;
+    overflow: auto;
+    padding: var(--pwl-ui-card-padding);
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: var(--pwl-ui-control-radius);
+    background: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-encomendas-group-members label {
+    display: flex;
+    align-items: center;
+    gap: var(--pwl-ui-gap);
+    color: var(--pwl-ui-ink);
+    font: inherit;
+}
+
+.pwl-ui .pwl-encomendas-group-members input {
+    accent-color: var(--pwl-ui-orange);
+}
+
+.pwl-ui .pwl-encomendas-inline-form {
+    display: inline-block;
+    margin: 0;
+}
+
+.pwl-ui fieldset.pwl-ui-field {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.pwl-ui .pwl-ui-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pwl-ui-space-2);
+    padding: var(--pwl-ui-space-2);
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: var(--pwl-ui-card-radius);
+    background: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab {
+    border-color: transparent;
+    border-radius: var(--pwl-ui-control-radius);
+    background: var(--pwl-ui-panel);
+    color: var(--pwl-ui-ink);
+    font-family: var(--pwl-ui-font-family);
+    text-decoration: none;
+}
+
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab:hover,
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab:focus-visible {
+    border-color: var(--pwl-ui-orange-hover);
+    background: var(--pwl-ui-orange-hover);
+    color: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab.is-active,
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab.is-active:not(:hover):not(:focus-visible) {
+    border-color: var(--pwl-ui-orange);
+    background: var(--pwl-ui-orange);
+    color: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab.is-active:hover,
+.pwl-ui .pwl-ui-tabs .pwl-ui-tab.is-active:focus-visible {
+    border-color: var(--pwl-ui-orange-hover);
+    background: var(--pwl-ui-orange-hover);
+    color: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-encomendas-carriers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--pwl-ui-space-4);
+}
+
+.pwl-ui .pwl-encomendas-carrier-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+}
+
+.pwl-ui .pwl-encomendas-carrier-name-field {
+    grid-column: 1 / -1;
+}
+
+.pwl-ui .pwl-encomendas-carrier-logo-field {
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-carrier-logo-field small {
+    display: block;
+    margin-block-start: var(--pwl-ui-space-1);
+    color: var(--pwl-ui-muted);
+}
+
+.pwl-ui .pwl-encomendas-carrier-logo-picker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--pwl-ui-space-2);
+}
+
+.pwl-ui .pwl-encomendas-carrier-logo-picker [hidden] {
+    display: none !important;
+}
+
+.pwl-ui .pwl-encomendas-carrier-admin-preview,
+.pwl-ui .pwl-encomendas-carrier-admin-table-logo {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--pwl-ui-line);
+    border-radius: 50%;
+    background: var(--pwl-ui-panel);
+}
+
+.pwl-ui .pwl-encomendas-carrier-admin-preview img,
+.pwl-ui .pwl-encomendas-carrier-admin-table-logo {
+    object-fit: contain;
+}
+
+.pwl-ui .pwl-encomendas-carrier-admin-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: var(--pwl-ui-space-1);
+}
+
+.pwl-ui .pwl-encomendas-carrier-admin-table-logo {
+    padding: var(--pwl-ui-space-1);
+}
+
+.pwl-ui .pwl-encomendas-carrier-form-actions {
+    display: flex;
+    align-items: end;
+    gap: var(--pwl-ui-space-2);
+    flex-wrap: wrap;
+}
+
+.pwl-ui .pwl-encomendas-carrier-form .pwl-ui-field {
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-carrier-submit {
+    min-height: var(--pwl-ui-control-height);
+    align-self: end;
+    white-space: nowrap;
+}
+
+.pwl-ui .pwl-encomendas-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--pwl-ui-space-4);
+}
+
+.pwl-ui .pwl-encomendas-group-form {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.pwl-ui .pwl-encomendas-group-form .pwl-ui-field {
+    min-width: 0;
+}
+
+.pwl-ui .pwl-encomendas-group-search {
+    margin-block: var(--pwl-ui-space-2) var(--pwl-ui-space-3);
+}
+
+.pwl-ui .pwl-encomendas-group-members [data-pwl-group-member][hidden] {
+    display: none !important;
+}
+
+.pwl-ui .pwl-encomendas-group-members label {
+    width: 100%;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: var(--pwl-ui-space-2);
+    border: 0;
+    background: transparent;
+}
+
+.pwl-ui .pwl-encomendas-group-members input[type="checkbox"] {
+    flex: 0 0 var(--pwl-ui-space-4);
+    width: var(--pwl-ui-space-4) !important;
+    min-width: var(--pwl-ui-space-4);
+    height: var(--pwl-ui-space-4) !important;
+    min-height: var(--pwl-ui-space-4) !important;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 782px) {
+    .pwl-ui .pwl-encomendas-advance-notice-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-ui .pwl-encomendas-carriers-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-ui .pwl-encomendas-carrier-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-ui .pwl-encomendas-carrier-form-actions {
+        justify-content: flex-start;
+    }
+
+    .pwl-ui .pwl-encomendas-groups-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.pwl-ui .pwl-encomendas-bulk-delete [data-pwl-delete-count] {
+    color: var(--pwl-ui-text);
+    font-size: var(--pwl-ui-font-small);
+}
+
+.pwl-ui .pwl-encomendas-delete-confirm {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: var(--pwl-ui-space-3);
+    width: 100%;
+    padding-block-start: var(--pwl-ui-space-3);
+    border-block-start: 1px solid var(--pwl-ui-line);
+}
+
+.pwl-ui .pwl-encomendas-delete-confirm[hidden] {
+    display: none;
+}
+
+.pwl-ui .pwl-encomendas-delete-confirm .pwl-ui-field {
+    flex: 0 1 280px;
+    margin: 0;
+}
+
+.pwl-ui .pwl-encomendas-table input[data-pwl-delete-item],
+.pwl-ui .pwl-encomendas-table input[data-pwl-delete-all] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--pwl-ui-orange);
+}
+
+@media (max-width: 782px) {
+    .pwl-ui .pwl-encomendas-delete-confirm {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pwl-ui .pwl-encomendas-delete-confirm .pwl-ui-field {
+        flex-basis: auto;
+    }
+}
+
+
+/* Mantém o texto branco nos botões da Admin UI no hover, foco e acionamento. */
+.pwl-ui button.pwl-ui-button:hover,
+.pwl-ui button.pwl-ui-button:focus-visible,
+.pwl-ui button.pwl-ui-button:active,
+.pwl-ui a.pwl-ui-button:hover,
+.pwl-ui a.pwl-ui-button:focus-visible,
+.pwl-ui a.pwl-ui-button:active,
+.pwl-ui input.pwl-ui-button:hover,
+.pwl-ui input.pwl-ui-button:focus-visible,
+.pwl-ui input.pwl-ui-button:active,
+.pwl-ui .pwl-ui-tab:hover,
+.pwl-ui .pwl-ui-tab:focus-visible,
+.pwl-ui .pwl-ui-tab:active { color: #ffffff !important; }

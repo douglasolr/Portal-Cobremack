@@ -1,0 +1,1690 @@
+.pwl-ds.pwl-portal-ui.pwl-encomendas-portal {
+    background: var(--pwl-color-background);
+}
+
+.pwl-encomendas-management-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+    align-items: stretch;
+    gap: var(--pwl-space-4);
+    margin-block-start: var(--pwl-space-page-gap);
+}
+
+.pwl-encomendas-management-main {
+    display: grid;
+    min-width: 0;
+    align-content: start;
+    gap: var(--pwl-space-4);
+}
+
+.pwl-encomendas-management-main > .pwl-encomendas-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-block-start: 0;
+}
+
+.pwl-encomendas-management-notifications {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    margin: 0;
+    min-block-size: 520px;
+    overflow: hidden;
+}
+
+.pwl-encomendas-management-notifications > .pwl-card__header {
+    flex: 0 0 auto;
+}
+
+.pwl-encomendas-management-notifications > .pwl-card__body {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 0;
+}
+
+.pwl-encomendas-management-main .pwl-encomendas-create-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pwl-encomendas-management-main .pwl-encomendas-form-submit {
+    grid-column: 1 / -1;
+}
+
+.pwl-encomendas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: var(--pwl-space-4);
+    margin-block-start: var(--pwl-space-page-gap);
+}
+
+.pwl-encomendas-employee-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--pwl-space-4);
+    margin-block-start: var(--pwl-space-page-gap);
+}
+
+.pwl-encomendas-employee-layout > .pwl-card {
+    min-width: 0;
+}
+
+.pwl-encomendas-employee-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(140px, .75fr)) auto;
+    align-items: end;
+    gap: var(--pwl-space-3);
+    margin-block-end: var(--pwl-space-4);
+}
+
+.pwl-encomendas-employee-filters > * {
+    min-width: 0;
+    margin-block-end: 0;
+}
+
+.pwl-encomendas-advance-notice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pwl-space-3);
+}
+
+.pwl-encomendas-advance-notice-grid > .pwl-field {
+    min-width: 0;
+    margin-block-end: 0;
+}
+
+.pwl-encomendas-advance-notice-description,
+.pwl-encomendas-advance-notice-password,
+.pwl-encomendas-advance-notice-submit {
+    grid-column: 1 / -1;
+}
+
+.pwl-encomendas-advance-notice-description textarea {
+    min-height: 5.5rem;
+}
+
+.pwl-encomendas-password-control {
+    display: flex;
+    align-items: end;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-password-control .pwl-input {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.pwl-encomendas-password-control .pwl-button {
+    flex: 0 0 auto;
+}
+
+.pwl-encomendas-advance-notice-password small {
+    display: block;
+    margin-block-start: var(--pwl-space-2);
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-advance-notice-submit .pwl-button {
+    width: 100%;
+}
+
+.pwl-encomendas-own-notices {
+    margin-block-start: var(--pwl-space-5);
+    padding-block-start: var(--pwl-space-4);
+    border-block-start: 1px solid var(--pwl-color-border);
+}
+
+.pwl-encomendas-own-notices h3 {
+    margin: 0 0 var(--pwl-space-3);
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-heading-sm);
+}
+
+.pwl-encomendas-advance-notice-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pwl-space-3);
+}
+
+.pwl-encomendas-advance-notice-list--management {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+}
+
+.pwl-encomendas-advance-notice-card {
+    display: block;
+    min-width: 0;
+    padding: var(--pwl-space-4);
+    border: 0;
+    border-block-end: 1px solid var(--pwl-color-border);
+    border-radius: 0;
+    background: var(--pwl-color-surface);
+    box-shadow: none;
+}
+
+.pwl-encomendas-advance-notice-card:last-child {
+    border-block-end: 0;
+}
+
+.pwl-encomendas-notice-avatar {
+    display: grid;
+    width: var(--pwl-control-large);
+    height: var(--pwl-control-large);
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: var(--pwl-radius-full);
+    background: var(--pwl-color-primary);
+    color: var(--pwl-color-text-inverse);
+    font: var(--pwl-font-label);
+}
+
+.pwl-encomendas-notice-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-notice-person {
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-body-sm);
+}
+
+.pwl-encomendas-notice-data,
+.pwl-encomendas-notice-password {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pwl-space-2) var(--pwl-space-4);
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-notice-password {
+    justify-content: space-between;
+}
+
+.pwl-encomendas-notice-password strong {
+    color: var(--pwl-color-text);
+}
+
+@media (max-width: 600px) {
+    .pwl-encomendas-notice-password {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.pwl-encomendas-advance-notice-card__top,
+.pwl-encomendas-advance-notice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-advance-notice-card__top > strong {
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-heading-sm);
+}
+
+.pwl-encomendas-advance-notice-card > p {
+    margin: 0;
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-body-sm);
+    overflow-wrap: anywhere;
+}
+
+.pwl-encomendas-notice-content > .pwl-button {
+    justify-self: start;
+}
+
+.pwl-encomendas-promote-modal[hidden] {
+    display: none;
+}
+
+.pwl-encomendas-promote-modal {
+    position: fixed;
+    z-index: 100000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: var(--pwl-space-4);
+    background: rgb(0 0 0 / 55%);
+}
+
+.pwl-encomendas-promote-modal__dialog {
+    box-sizing: border-box;
+    width: min(90vw, 58rem);
+    max-height: 90vh;
+    overflow: auto;
+    padding: var(--pwl-space-5);
+    border: 1px solid var(--pwl-color-border);
+    border-radius: var(--pwl-radius-xl);
+    background: var(--pwl-color-surface);
+    box-shadow: var(--pwl-shadow-card);
+    color: var(--pwl-color-text);
+}
+
+.pwl-encomendas-promote-carrier {
+    display: flex;
+    width: var(--pwl-control-default);
+    min-width: var(--pwl-control-default);
+    height: var(--pwl-control-default);
+    min-height: var(--pwl-control-default);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-block: var(--pwl-space-3);
+    border: 1px solid var(--pwl-color-border);
+    border-radius: var(--pwl-radius-pill);
+    background: var(--pwl-color-surface);
+}
+
+.pwl-ds .pwl-encomendas-promote-carrier img[data-pwl-promote-logo] {
+    display: block;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover !important;
+}
+
+.pwl-encomendas-promote-modal__dialog h2 {
+    margin: 0 0 var(--pwl-space-2);
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-heading-md);
+}
+
+.pwl-encomendas-promote-modal__dialog > p {
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-body-sm);
+}
+
+.pwl-encomendas-promote-modal__dialog dl {
+    display: grid;
+    grid-template-columns: minmax(8rem, .8fr) minmax(0, 1.5fr);
+    gap: var(--pwl-space-2) var(--pwl-space-3);
+    margin: var(--pwl-space-4) 0;
+    padding: var(--pwl-space-4);
+    border-radius: var(--pwl-radius-lg);
+    background: var(--pwl-color-surface-subtle);
+    font: var(--pwl-font-body-sm);
+}
+
+.pwl-encomendas-promote-modal__dialog dt {
+    color: var(--pwl-color-text-secondary);
+}
+
+.pwl-encomendas-promote-modal__dialog dd {
+    margin: 0;
+    color: var(--pwl-color-text);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.pwl-encomendas-promote-modal__question {
+    color: var(--pwl-color-text) !important;
+    font-weight: 600 !important;
+}
+
+.pwl-encomendas-promote-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-promote-modal__actions .pwl-button {
+    text-transform: uppercase;
+}
+
+.pwl-encomendas-advance-notice-meta {
+    justify-content: flex-start;
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-advance-notice-meta strong {
+    color: var(--pwl-color-text);
+}
+
+.pwl-encomendas-notice-secret,
+.pwl-encomendas-notice-secret-used {
+    padding: var(--pwl-space-2) var(--pwl-space-3);
+    border-radius: var(--pwl-radius-md);
+    background: var(--pwl-color-surface-subtle);
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-notice-secret summary {
+    cursor: pointer;
+    color: var(--pwl-color-text);
+    font-weight: 600;
+}
+
+.pwl-encomendas-notice-secret code {
+    display: inline-block;
+    margin-block-start: var(--pwl-space-2);
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-body-sm);
+    overflow-wrap: anywhere;
+}
+
+.pwl-encomendas-notice-cancel {
+    margin: 0;
+}
+
+.pwl-encomendas-notice-cancel .pwl-button,
+.pwl-encomendas-advance-notice-card > .pwl-button {
+    align-self: flex-start;
+}
+
+.pwl-encomendas-link-notice-field {
+    grid-column: 1 / -1;
+}
+
+.pwl-encomendas-notice-secret-used {
+    color: var(--pwl-color-text-secondary);
+}
+
+.pwl-encomendas-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--pwl-space-3);
+    margin-block-start: var(--pwl-space-page-gap);
+}
+
+.pwl-encomendas-stats .pwl-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-stat-label {
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-label);
+}
+
+.pwl-encomendas-stat-value {
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-display);
+}
+
+.pwl-encomendas-create-grid {
+    display: grid;
+    grid-template-columns: minmax(210px, 1.25fr) repeat(3, minmax(140px, 1fr)) minmax(190px, 1fr);
+    align-items: end;
+    gap: var(--pwl-space-3);
+}
+
+.pwl-encomendas-create-grid > .pwl-field {
+    margin-block-end: 0;
+}
+
+.pwl-ds .pwl-encomendas-registration-card {
+    --pwl-encomendas-registration-ink: #24354a;
+    --pwl-encomendas-registration-glass: rgb(36 53 74 / 94%);
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: var(--pwl-radius-xl);
+    background: linear-gradient(118deg, rgb(36 53 74 / 98%) 0%, var(--pwl-encomendas-registration-glass) 72%, rgb(73 57 62 / 90%) 100%);
+    box-shadow: var(--pwl-shadow-card);
+    color: #f8fafc;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.pwl-ds .pwl-encomendas-registration-card > .pwl-card__header {
+    border-color: rgb(255 255 255 / 16%);
+    background: transparent;
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-card__title,
+.pwl-ds .pwl-encomendas-registration-card .pwl-card__description,
+.pwl-ds .pwl-encomendas-registration-card .pwl-field__label {
+    color: #f8fafc;
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-card__description {
+    opacity: .82;
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-input,
+.pwl-ds .pwl-encomendas-registration-card .pwl-select {
+    border-color: rgb(255 255 255 / 24%);
+    background: rgb(255 255 255 / 92%);
+    color: var(--pwl-color-text);
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-input:hover,
+.pwl-ds .pwl-encomendas-registration-card .pwl-select:hover {
+    border-color: rgb(255 255 255 / 55%);
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-input:focus,
+.pwl-ds .pwl-encomendas-registration-card .pwl-select:focus {
+    border-color: var(--pwl-color-primary);
+}
+
+.pwl-ds .pwl-encomendas-create-grid input.pwl-input {
+    border: 1px solid var(--pwl-color-control-border) !important;
+    border-radius: var(--pwl-radius-md) !important;
+}
+
+.pwl-ds .pwl-encomendas-create-grid input.pwl-input:hover {
+    border-color: var(--pwl-color-text-muted) !important;
+}
+
+.pwl-ds .pwl-encomendas-create-grid input.pwl-input:focus {
+    border-color: var(--pwl-color-primary) !important;
+    box-shadow: var(--pwl-shadow-focus) !important;
+    outline: 0 !important;
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-encomendas-create-grid input.pwl-input {
+    border-color: rgb(255 255 255 / 24%) !important;
+    background: rgb(255 255 255 / 92%) !important;
+}
+
+.pwl-ds .pwl-encomendas-registration-card .pwl-encomendas-create-grid input.pwl-input:hover {
+    border-color: rgb(255 255 255 / 55%) !important;
+}
+
+.pwl-encomendas-form-submit {
+    min-width: 0;
+}
+
+.pwl-encomendas-form-submit .pwl-button {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.pwl-encomendas-portal main > .pwl-alert {
+    margin-block-end: var(--pwl-space-4);
+}
+
+.pwl-encomendas-feedback {
+    margin-block: var(--pwl-space-4) var(--pwl-space-5);
+}
+
+.pwl-encomendas-filter-button {
+    align-self: end;
+    margin-block-end: 0;
+    white-space: nowrap;
+}
+
+.pwl-encomendas-portal .pwl-button:hover {
+    border-color: var(--pwl-color-primary-hover);
+    background: var(--pwl-color-primary-hover);
+    color: #ffffff !important;
+}
+
+.pwl-encomendas-portal .pwl-encomendas-sort:hover {
+    color: var(--pwl-color-primary-hover);
+}
+
+.pwl-encomendas-filter-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 2fr) repeat(3, minmax(140px, 1fr)) auto;
+    align-items: end;
+    gap: var(--pwl-space-3);
+    margin-block-end: var(--pwl-space-4);
+}
+
+.pwl-encomendas-filter-grid > .pwl-field {
+    margin-block-end: 0;
+}
+
+.pwl-ds.pwl-encomendas-portal select.pwl-select,
+.pwl-ds.pwl-encomendas-portal select.pwl-select option {
+    color: var(--pwl-color-text) !important;
+}
+
+.pwl-encomendas-sort {
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-label);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pwl-encomendas-sort span {
+    color: var(--pwl-color-text-muted);
+}
+
+.pwl-encomendas-sort:hover,
+.pwl-encomendas-sort:focus-visible {
+    color: var(--pwl-color-primary);
+}
+
+.pwl-encomendas-table {
+    min-width: 1100px;
+}
+
+.pwl-encomendas-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--pwl-space-3);
+}
+
+.pwl-encomendas-package-card {
+    min-width: 0;
+    box-shadow: var(--pwl-shadow-card);
+}
+
+.pwl-encomendas-package-card > .pwl-card__body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: var(--pwl-space-3);
+}
+
+.pwl-encomendas-card-top,
+.pwl-encomendas-recipient,
+.pwl-encomendas-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-card-age {
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+    text-align: left;
+}
+
+.pwl-encomendas-card-top form {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.pwl-encomendas-recipient {
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+.pwl-encomendas-recipient > .pwl-encomendas-carrier-badge {
+    margin-inline-start: auto;
+}
+
+.pwl-encomendas-avatar {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--pwl-radius-pill);
+    background: var(--pwl-color-primary-soft);
+    color: var(--pwl-color-primary);
+    font: var(--pwl-font-heading-md);
+    overflow: hidden;
+}
+
+.pwl-encomendas-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+.pwl-encomendas-recipient-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--pwl-space-1);
+}
+
+.pwl-encomendas-recipient-copy strong {
+    overflow-wrap: anywhere;
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-heading-sm);
+}
+
+.pwl-encomendas-recipient-copy span {
+    overflow: hidden;
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+    text-overflow: ellipsis;
+}
+
+.pwl-encomendas-package-detail {
+    display: grid;
+    gap: var(--pwl-space-4);
+    padding: var(--pwl-space-3);
+    border-radius: var(--pwl-radius-md);
+    background: #efefef;
+}
+
+.pwl-encomendas-detail-line {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pwl-space-1);
+}
+
+.pwl-encomendas-detail-line--received {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-detail-line--received strong {
+    font: var(--pwl-font-label);
+}
+
+.pwl-encomendas-detail-line span {
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-detail-line strong {
+    overflow-wrap: anywhere;
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-label);
+}
+
+.pwl-encomendas-detail-line--sender {
+    width: 100%;
+}
+
+.pwl-encomendas-sender-value {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pwl-space-2);
+}
+
+.pwl-encomendas-sender-value strong {
+    min-width: 0;
+}
+
+.pwl-encomendas-carrier-badge {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--pwl-color-border);
+    border-radius: var(--pwl-radius-pill);
+    background: var(--pwl-color-surface);
+}
+
+.pwl-encomendas-carrier-badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pwl-encomendas-package-description {
+    margin: 0;
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-package-description:empty {
+    display: none;
+}
+
+.pwl-encomendas-channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pwl-space-1) var(--pwl-space-3);
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-operator {
+    margin-block-start: var(--pwl-space-1);
+    color: var(--pwl-color-text-secondary);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-operator strong {
+    color: var(--pwl-color-text);
+    font: var(--pwl-font-label);
+}
+
+.pwl-encomendas-pickup-note {
+    color: var(--pwl-color-success);
+    font: var(--pwl-font-small);
+}
+
+.pwl-encomendas-card-actions {
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-block-start: auto;
+    padding-block-start: var(--pwl-space-2);
+}
+
+.pwl-encomendas-card-actions form {
+    min-width: 0;
+    flex: 1 1 100%;
+}
+
+.pwl-encomendas-card-actions form .pwl-button {
+    width: 100%;
+}
+
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-card-actions form button.pwl-encomendas-action-button,
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-card-top form button.pwl-encomendas-action-button {
+    box-sizing: border-box;
+    height: var(--pwl-control-default) !important;
+    min-height: var(--pwl-control-default) !important;
+    padding-block: 0 !important;
+    font: var(--pwl-font-control) !important;
+    letter-spacing: normal !important;
+    text-transform: uppercase !important;
+}
+
+.pwl-encomendas-pickup-fields {
+    display: grid;
+    gap: var(--pwl-space-2);
+    margin-block-start: var(--pwl-space-2);
+}
+
+.pwl-encomendas-pickup-fields[hidden] {
+    display: none;
+}
+
+.pwl-encomendas-pickup-other {
+    display: block;
+    margin-block: var(--pwl-space-2);
+}
+
+.pwl-encomendas-pickup-other[hidden] {
+    display: none;
+}
+
+.pwl-encomendas-card-actions > .pwl-button {
+    width: 100%;
+}
+
+@media (max-width: 980px) {
+    .pwl-encomendas-employee-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-encomendas-management-top {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-encomendas-management-notifications {
+        min-block-size: 420px;
+    }
+
+    .pwl-encomendas-advance-notice-list--management {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pwl-encomendas-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pwl-encomendas-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pwl-encomendas-create-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pwl-encomendas-form-submit {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 782px) {
+    .pwl-encomendas-filter-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 783px) and (max-width: 1100px) {
+    .pwl-encomendas-filter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .pwl-encomendas-stats,
+    .pwl-encomendas-create-grid,
+    .pwl-encomendas-card-grid,
+    .pwl-encomendas-advance-notice-grid,
+    .pwl-encomendas-advance-notice-list,
+    .pwl-encomendas-advance-notice-list--management,
+    .pwl-encomendas-employee-filters {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pwl-encomendas-form-submit {
+        grid-column: auto;
+    }
+}
+
+
+/* Portal UI Gestão: ajustes consolidados do layout e notificações. */
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: var(--pwl-space-3); margin-block-start: var(--pwl-space-3); }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-main { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--pwl-space-3); min-width: 0; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-main > .pwl-encomendas-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--pwl-space-2); margin: 0; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-main > .pwl-encomendas-stats .pwl-card__body { display: flex; min-height: 86px; flex-direction: column; justify-content: center; gap: var(--pwl-space-1); padding: var(--pwl-space-3); }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-main > .pwl-encomendas-stats .pwl-encomendas-stat-label { font: var(--pwl-font-small); line-height: 1.3; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-main > .pwl-encomendas-stats .pwl-encomendas-stat-value { font: var(--pwl-font-heading-lg); line-height: 1.1; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications { display: flex; min-width: 0; min-height: 100%; flex-direction: column; align-self: stretch; margin: 0; overflow: hidden; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications > .pwl-card__header { flex: 0 0 auto; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications > .pwl-card__body { display: flex; min-width: 0; min-height: 0; flex: 1 1 auto; flex-direction: column; overflow: hidden; padding: 0; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-advance-notice-list--management { display: flex; min-height: 0; flex: 1 1 auto; flex-direction: column; overflow-y: auto; }
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-advance-notice-list--management > .pwl-encomendas-advance-notice-card { padding: 12px 16px; border: 0; border-block-end: 1px solid var(--pwl-color-border); border-radius: 0; background: var(--pwl-color-surface); box-shadow: none; }
+.pwl-encomendas-notice-layout { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: var(--pwl-space-3); min-width: 0; }
+.pwl-encomendas-notice-layout > .pwl-encomendas-notice-avatar { display: grid; width: 40px; height: 40px; flex: 0 0 40px; place-items: center; overflow: hidden; border-radius: var(--pwl-radius-full); background: #2d3e54; color: #fff; font: var(--pwl-font-label); }
+.pwl-encomendas-notice-avatar img { display: block; width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: cover; }
+.pwl-encomendas-notice-content { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.pwl-encomendas-notice-person { min-width: 0; color: var(--pwl-color-text); font: var(--pwl-font-label); font-weight: 700; }
+.pwl-encomendas-notice-data { display: grid; gap: 2px; color: var(--pwl-color-text-secondary); font: var(--pwl-font-small); }
+.pwl-encomendas-notice-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--pwl-space-3); overflow-wrap: anywhere; line-height: 1.3; }
+.pwl-encomendas-notice-line strong { color: var(--pwl-color-text); font-weight: 600; }
+.pwl-encomendas-notice-layout > .pwl-button { align-self: center; white-space: nowrap; }
+@media (max-width: 980px) { .pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-top { grid-template-columns: minmax(0, 1fr); } .pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications { min-block-size: 420px; } }
+@media (max-width: 640px) { .pwl-encomendas-notice-layout { grid-template-columns: 36px minmax(0, 1fr); gap: var(--pwl-space-2); } .pwl-encomendas-notice-layout > .pwl-encomendas-notice-avatar { width: 36px; height: 36px; flex-basis: 36px; } .pwl-encomendas-notice-layout > .pwl-button { grid-column: 2; justify-self: start; } }
+
+
+/* Mantém o texto branco em todos os botões do módulo durante hover e foco. */
+.pwl-ds.pwl-encomendas-portal button.pwl-button:hover,
+.pwl-ds.pwl-encomendas-portal button.pwl-button:focus-visible,
+.pwl-ds.pwl-encomendas-portal button.pwl-button:active,
+.pwl-ds.pwl-encomendas-portal a.pwl-button:hover,
+.pwl-ds.pwl-encomendas-portal a.pwl-button:focus-visible,
+.pwl-ds.pwl-encomendas-portal a.pwl-button:active,
+.pwl-ds.pwl-encomendas-portal input.pwl-button:hover,
+.pwl-ds.pwl-encomendas-portal input.pwl-button:focus-visible,
+.pwl-ds.pwl-encomendas-portal input.pwl-button:active { color: #ffffff !important; }
+
+
+/* Foto das notificações no mesmo selo circular das encomendas registradas. */
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-notice-layout > .pwl-encomendas-notice-avatar {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    overflow: hidden;
+    border-radius: var(--pwl-radius-pill);
+    clip-path: circle(50%);
+}
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-notice-layout > .pwl-encomendas-notice-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+}
+@media (max-width: 640px) {
+    .pwl-ds.pwl-encomendas-portal .pwl-encomendas-notice-layout > .pwl-encomendas-notice-avatar {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+}
+
+
+/* Painel de colaboradores com altura fixa e rolagem interna da lista. */
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications {
+    box-sizing: border-box;
+    height: 414px;
+    max-height: 414px;
+    min-height: 0;
+    min-block-size: 0;
+    overflow: hidden;
+}
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications > .pwl-card__body {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-advance-notice-list--management {
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+@media (max-width: 980px) {
+    .pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications {
+        height: 414px;
+        max-height: 414px;
+        min-block-size: 0;
+    }
+}
+
+
+/* Respiro da mensagem vazia no painel de notificações da gestão. */
+.pwl-ds.pwl-encomendas-portal .pwl-encomendas-management-notifications > .pwl-card__body > .pwl-encomendas-empty-management-alert {
+    margin: var(--pwl-space-3);
+}
+
+/* Stitch Gestão 1.4.18: isolated Portal UI presentation; administrative views untouched. */
+.pwl-ds.cm-stitch-gestao {color:var(--pwl-color-text);font-family:var(--pwl-font-family)}
+.cm-stitch-gestao .pwl-portal-page {display:flex;flex-direction:column;gap:var(--pwl-space-5)}
+.cm-stitch-gestao .pwl-portal-page-header {display:none}
+.cm-stitch-gestao .cm-stitch-actions {display:flex;align-items:center;justify-content:space-between;gap:var(--pwl-space-5);flex-wrap:wrap;background:var(--pwl-color-surface);padding:var(--pwl-space-6);border-radius:var(--pwl-radius-xl);box-shadow:var(--pwl-shadow-card)}
+.cm-stitch-gestao .cm-stitch-crumb {display:block;color:var(--pwl-color-text-secondary);font:var(--pwl-font-label);margin-bottom:var(--pwl-space-3)}
+.cm-stitch-gestao .cm-stitch-heading h2 {font:var(--pwl-font-heading-lg);border-left:none;padding-left:0;margin:0}
+.cm-stitch-gestao .cm-stitch-heading p {font:var(--pwl-font-body);color:var(--pwl-color-text-secondary);margin:var(--pwl-space-2) 0 0}
+.cm-stitch-gestao .cm-stitch-open {background:var(--pwl-color-primary);color:var(--pwl-color-surface);border-radius:var(--pwl-radius-md);padding:var(--pwl-space-3) var(--pwl-space-5);font:var(--pwl-font-control)}
+.cm-stitch-gestao .pwl-encomendas-management-top {display:contents}
+.cm-stitch-gestao .pwl-encomendas-management-main {display:contents}
+.cm-stitch-gestao .pwl-encomendas-registration-card {display:none}
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible {display:block;position:fixed;inset:0;z-index:99999;overflow:auto;margin:0;background:var(--pwl-color-surface);width:min(100%, 640px);height:max-content;max-height:90vh;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:var(--pwl-shadow-card);border-radius:var(--pwl-radius-xl)}
+.cm-stitch-gestao .cm-stitch-overlay {position:fixed;inset:0;background:var(--pwl-color-text);opacity:.65;z-index:99998}
+.cm-stitch-gestao .cm-stitch-close {margin-left:auto;cursor:pointer;background:var(--pwl-color-surface-subtle);color:var(--pwl-color-text);border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-md);padding:var(--pwl-space-2)}
+.cm-stitch-gestao .pwl-encomendas-management-notifications {order:2;min-height:unset;border-radius:var(--pwl-radius-xl);box-shadow:var(--pwl-shadow-card)}
+.cm-stitch-gestao .pwl-encomendas-layout {order:3;display:block}
+.cm-stitch-gestao .pwl-encomendas-layout > .pwl-card {background:transparent;border:0;box-shadow:none;padding:0}
+.cm-stitch-gestao .pwl-encomendas-layout > .pwl-card > .pwl-card__header {background:var(--pwl-color-surface);border-radius:var(--pwl-radius-xl) var(--pwl-radius-xl) 0 0;padding:var(--pwl-space-5)}
+.cm-stitch-gestao .pwl-encomendas-layout > .pwl-card > .pwl-card__body {background:var(--pwl-color-surface);padding:var(--pwl-space-5);border-radius:0 0 var(--pwl-radius-xl) var(--pwl-radius-xl)}
+.cm-stitch-gestao .pwl-encomendas-filter-grid {display:grid;grid-template-columns:2fr repeat(3,minmax(0,1fr)) auto;gap:var(--pwl-space-3);align-items:end;background:var(--pwl-color-surface-subtle);padding:var(--pwl-space-4);border-radius:var(--pwl-radius-lg)}
+.cm-stitch-gestao .pwl-encomendas-card-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--pwl-space-4);margin-top:var(--pwl-space-5)}
+.cm-stitch-gestao .pwl-encomendas-package-card {border:1px solid var(--pwl-color-border);border-radius:var(--pwl-radius-xl);box-shadow:var(--pwl-shadow-card);background:var(--pwl-color-surface);transition:box-shadow .2s ease,transform .2s ease}
+.cm-stitch-gestao .pwl-encomendas-package-card:hover {transform:translateY(calc(-1 * var(--pwl-space-1)));box-shadow:var(--pwl-shadow-card)}
+.cm-stitch-gestao .pwl-encomendas-package-card .pwl-card__body {padding:var(--pwl-space-5)}
+.cm-stitch-gestao .pwl-encomendas-card-actions .pwl-button--primary {background:var(--pwl-color-primary)}
+.cm-stitch-gestao .pwl-encomendas-stats {order:1}
+@media(max-width:1050px){.cm-stitch-gestao .pwl-encomendas-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.cm-stitch-gestao .pwl-encomendas-card-grid,.cm-stitch-gestao .pwl-encomendas-filter-grid{grid-template-columns:minmax(0,1fr)}.cm-stitch-gestao .cm-stitch-actions{padding:var(--pwl-space-4)}.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible{max-height:100vh;border-radius:0}}
+
+/* v1.4.19: popup da Gestao conforme referencia Stitch. Escopo exclusivo Portal UI. */
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible{width:min(100% - 2 * var(--pwl-space-4),var(--pwl-modal-width-md, 540px));max-height:calc(100dvh - 2 * var(--pwl-space-5));overflow-y:auto;padding:0;background:var(--pwl-color-surface);border:0;box-shadow:var(--pwl-shadow-xl,var(--pwl-shadow-card));}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header{display:flex;align-items:flex-start;position:relative;gap:var(--pwl-space-3);padding:var(--pwl-space-5);background:var(--pwl-color-surface-subtle);border:0;}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header:before{content:'⊞';display:grid;place-items:center;flex:none;width:var(--pwl-space-9,36px);height:var(--pwl-space-9,36px);border-radius:var(--pwl-radius-lg);background:var(--pwl-color-primary);color:var(--pwl-color-on-primary,#fff);font-size:var(--pwl-font-size-xl,22px);font-weight:700;}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__title{font:var(--pwl-font-heading-md);color:var(--pwl-color-text);margin:0;}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__subtitle{color:var(--pwl-color-text-secondary);font:var(--pwl-font-body-sm);margin:var(--pwl-space-1) 0 0;}
+.cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-close{position:absolute;top:var(--pwl-space-4);right:var(--pwl-space-4);border:0;background:transparent;font-size:var(--pwl-font-size-xl,22px);padding:var(--pwl-space-1);}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__body{padding:var(--pwl-space-5);}
+.cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--pwl-space-4);}
+.cm-stitch-gestao .cm-stitch-form .pwl-field{display:flex;flex-direction:column;gap:var(--pwl-space-2);min-width:0;margin:0;}
+.cm-stitch-gestao .cm-stitch-form .pwl-field:nth-child(-n+2),.cm-stitch-gestao .cm-stitch-form .cm-stitch-notification-options,.cm-stitch-gestao .cm-stitch-form .pwl-encomendas-form-submit{grid-column:1/-1;}
+.cm-stitch-gestao .cm-stitch-form .pwl-field__label{font:var(--pwl-font-label);color:var(--pwl-color-text);}
+.cm-stitch-gestao .cm-stitch-form .pwl-field__label small{float:right;font:var(--pwl-font-caption);color:var(--pwl-color-text-secondary);}
+.cm-stitch-gestao .cm-stitch-form .pwl-select,.cm-stitch-gestao .cm-stitch-form .pwl-input{width:100%;min-height:var(--pwl-control-height-lg,42px);background:var(--pwl-color-surface-subtle);border:1px solid transparent;border-radius:var(--pwl-radius-md);padding:var(--pwl-space-3);color:var(--pwl-color-text);}
+.cm-stitch-gestao .cm-stitch-form .pwl-select:focus,.cm-stitch-gestao .cm-stitch-form .pwl-input:focus{outline:2px solid var(--pwl-color-primary);outline-offset:0;}
+.cm-stitch-gestao .cm-stitch-notification-options{background:var(--pwl-color-surface-subtle);border-radius:var(--pwl-radius-md);padding:var(--pwl-space-3);display:flex;flex-direction:column;gap:var(--pwl-space-2);}
+.cm-stitch-gestao .cm-stitch-notification-options strong{text-transform:uppercase;font:var(--pwl-font-label);color:var(--pwl-color-text-secondary);}
+.cm-stitch-gestao .cm-stitch-notification-channels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--pwl-space-2);}
+.cm-stitch-gestao .cm-stitch-notification-channels span{display:flex;align-items:center;gap:var(--pwl-space-2);font:var(--pwl-font-body-sm);}
+.cm-stitch-gestao .cm-stitch-notification-channels span:before{content:'✓';display:grid;place-items:center;background:var(--pwl-color-primary);color:var(--pwl-color-on-primary,#fff);border-radius:var(--pwl-radius-xs);width:var(--pwl-space-4);height:var(--pwl-space-4);}
+.cm-stitch-gestao .cm-stitch-notification-options small{font:var(--pwl-font-caption);color:var(--pwl-color-text-secondary);}
+.cm-stitch-gestao .pwl-encomendas-form-submit{display:flex;justify-content:flex-end;align-items:center;gap:var(--pwl-space-3);margin-top:var(--pwl-space-2);}
+.cm-stitch-gestao .cm-stitch-overlay{backdrop-filter:blur(var(--pwl-space-1));}
+@media(max-width:600px){.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible{width:100%;max-height:100dvh;border-radius:0}.cm-stitch-gestao .cm-stitch-form{grid-template-columns:1fr}.cm-stitch-gestao .cm-stitch-form .pwl-field{grid-column:1/-1}.cm-stitch-gestao .cm-stitch-notification-channels{grid-template-columns:repeat(2,1fr)}.cm-stitch-gestao .pwl-encomendas-form-submit{flex-wrap:wrap}}
+
+/* v1.4.20: camada de fundo do popup (ajustada na v1.4.22). */
+.cm-stitch-gestao .cm-stitch-overlay {opacity:1;background:color-mix(in srgb,var(--pwl-color-text) 35%,transparent);-webkit-backdrop-filter:blur(var(--pwl-space-2));backdrop-filter:blur(var(--pwl-space-2));}
+
+/* v1.4.21: maior respiro entre campos e moldura Air Glass no popup de Gestao. */
+.cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-form {
+  column-gap: var(--pwl-space-5);
+  row-gap: var(--pwl-space-7);
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__body {
+  padding: var(--pwl-space-7);
+}
+.cm-stitch-gestao .cm-stitch-form .pwl-field {
+  gap: var(--pwl-space-3);
+}
+/* A camada de vidro fica fora do card, para nao ser recortada pelo scroll interno. */
+.cm-stitch-gestao .cm-stitch-overlay::before {
+  content: '';
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100% - 2 * var(--pwl-space-4)), calc(var(--pwl-modal-width-md, 540px) + 2 * var(--pwl-space-7)));
+  height: var(--cm-stitch-glass-height, auto);
+  border-radius: calc(var(--pwl-radius-xl) + var(--pwl-space-5));
+  background: color-mix(in srgb, var(--pwl-color-surface) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pwl-color-surface) 58%, transparent);
+  box-shadow: var(--pwl-shadow-card), inset 0 1px 0 color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+  -webkit-backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__body {padding: var(--pwl-space-5);}
+  .cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-form {row-gap: var(--pwl-space-6);}
+  .cm-stitch-gestao .cm-stitch-overlay::before {width: var(--cm-stitch-glass-width, 100%);height: var(--cm-stitch-glass-height, auto);border-radius: var(--pwl-radius-xl);}
+}
+
+/* v1.4.22: o fundo permanece nitido; apenas a moldura ao redor do card aplica vidro fosco. */
+.cm-stitch-gestao .cm-stitch-overlay {
+  opacity: 1;
+  background: color-mix(in srgb, var(--pwl-color-text) 18%, transparent);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.cm-stitch-gestao .cm-stitch-overlay::before {
+  width: var(--cm-stitch-glass-width, calc(var(--pwl-modal-width-md, 540px) + 2 * var(--pwl-space-7)));
+  height: var(--cm-stitch-glass-height, auto);
+  border-radius: calc(var(--pwl-radius-xl) + var(--pwl-space-3));
+}
+
+/* v1.4.23: Air Glass branco no proprio card, sem moldura externa. */
+.cm-stitch-gestao .cm-stitch-overlay::before {
+  content: none;
+  display: none;
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 82%, transparent);
+  -webkit-backdrop-filter: blur(var(--pwl-space-5)) saturate(150%);
+  backdrop-filter: blur(var(--pwl-space-5)) saturate(150%);
+  border: 1px solid color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 78%, transparent);
+}
+
+/* v1.4.24: maior transparencia no vidro branco do popup de registro. */
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+
+/* v1.4.25: vidro branco perceptivel em TODAS as camadas do popup.
+   A superficie interna opaca da versao anterior ocultava a transparencia do card. */
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 38%, transparent);
+  -webkit-backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  border: 1px solid color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible > .pwl-card__body,
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible > .pwl-card__header,
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible .pwl-card__body {
+  background: transparent;
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 28%, transparent);
+}
+.cm-stitch-gestao .cm-stitch-overlay {
+  background: color-mix(in srgb, var(--pwl-color-text) 10%, transparent);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.cm-stitch-gestao .cm-stitch-overlay::before { content:none; display:none; }
+
+/* v1.4.26: maior transparencia do card Air Glass, sem alterar a pagina. */
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 20%, transparent);
+}
+.cm-stitch-gestao .pwl-encomendas-registration-card.cm-stitch-visible .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 12%, transparent);
+}
+
+/* v1.4.27 | Portal UI Gestao: largura total, indicadores e tres registros por linha. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-top,
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main { width:100%; min-width:0; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications { width:100%; max-width:none; height:auto; max-height:none; min-height:0; align-self:stretch; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications > .pwl-card__body { overflow:visible; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-advance-notice-list--management { overflow:visible; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-stats .pwl-card__body { align-items:flex-start; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-stats .pwl-encomendas-stat-value { order:0; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-stats .pwl-encomendas-stat-label { order:1; }
+@media (max-width:1100px) { .pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:700px) { .pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns:minmax(0,1fr); } }
+
+/* v1.4.28: alinhamento do cabecalho do popup de Gestao. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header {
+  justify-content: flex-start;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header > div {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  text-align: left;
+  padding-right: var(--pwl-space-8);
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__description {
+  color: var(--pwl-color-black, #000);
+  text-align: left;
+}
+
+/* v1.4.30 | Gestão: quinto indicador e painel de avisos em card próprio. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications {
+  display: flex; flex-direction: column; width: 100%;
+  background: var(--pwl-color-surface);
+  border: 1px solid var(--pwl-color-border);
+  border-radius: var(--pwl-radius-xl);
+  overflow: hidden;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications > .pwl-card__header {
+  padding: var(--pwl-space-5);
+  background: var(--pwl-color-surface);
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications > .pwl-card__body {
+  padding: var(--pwl-space-4);
+  overflow: visible;
+}
+@media (max-width: 1100px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {grid-template-columns: repeat(3, minmax(0,1fr));}
+}
+@media (max-width: 700px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {grid-template-columns: repeat(2, minmax(0,1fr));}
+}
+
+/* v1.4.31: remove apenas a borda do campo Codigo de Rastreio no popup Gestao. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-form input[name="tracking_code"],
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .cm-stitch-form input[name="tracking_code"]:focus {
+  border: none;
+  box-shadow: none;
+}
+
+/* v1.4.32 | Gestao: indicadores a esquerda, notificacoes a direita, sem blocos residuais. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-top {
+  display:grid; grid-template-columns:minmax(0, 3fr) minmax(0, 2fr);
+  align-items:start; gap:var(--pwl-space-4); margin-block-start:var(--pwl-space-4);
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main {
+  display:block; min-width:0; position:relative;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+  display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:var(--pwl-space-2); width:100%; margin:0;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats > * {
+  min-width:0; width:auto; margin:0;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications {
+  width:100%; min-width:0; margin:0; align-self:start; order:initial;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card:not(.cm-stitch-visible) {display:none;}
+@media(max-width:1250px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-top {grid-template-columns:minmax(0,1fr);}
+}
+@media(max-width:780px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media(max-width:520px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* v1.4.36 | Removido o limite de 1440px da Portal UI Gestao. */
+
+/* v1.4.34 | Gestao: indicadores em faixa integral e notificacoes abaixo. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--pwl-space-4);
+  align-items: stretch;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main {
+  width: 100%;
+  min-width: 0;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: 100%;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-management-notifications {
+  width: 100%;
+  min-width: 0;
+  grid-column: 1 / -1;
+}
+@media (max-width: 780px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .pwl-ds.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* v1.4.35 | Somente os botoes Reenviar avisos da Gestao: reducao de 1pt. */
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-card-top form button.pwl-encomendas-action-button {
+    font-size: calc(13.2px - 1pt) !important;
+}
+
+/* 1.4.38: iconografia do cabecalho da Gestao, sem alterar componentes externos. */
+.cm-stitch-gestao .cm-stitch-identity{display:flex;align-items:center;gap:var(--pwl-space-4);min-width:0}
+.cm-stitch-gestao .cm-stitch-package-icon{display:flex;align-items:center;justify-content:center;flex:none;width:calc(var(--pwl-space-6) * 2);height:calc(var(--pwl-space-6) * 2);background:var(--pwl-color-primary);border-radius:var(--pwl-radius-lg);color:var(--pwl-color-surface)}
+.cm-stitch-gestao .cm-stitch-package-icon svg{display:block;width:70%;height:70%;stroke:currentColor;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+@media(max-width:700px){.cm-stitch-gestao .cm-stitch-identity{width:100%}}
+
+/* 1.4.39: quatro colunas somente nos registros da Portal UI Gestao. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1200px) { .pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .pwl-ds.cm-stitch-gestao .pwl-encomendas-card-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* v1.4.40 | Gestao: composicao de indicadores e notificacoes conforme referencia aprovada. */
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  align-items: stretch;
+  gap: var(--pwl-space-3);
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main {
+  display: block;
+  min-width: 0;
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--pwl-space-2);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats > .pwl-card:first-child {
+  grid-row: 1 / 3;
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats .pwl-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 0;
+  height: 100%;
+  gap: var(--pwl-space-2);
+  padding: var(--pwl-space-3);
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats > .pwl-card:first-child .pwl-encomendas-stat-value {
+  font: var(--pwl-font-display);
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-notifications {
+  grid-column: auto;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  align-self: stretch;
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-notifications > .pwl-card__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: var(--pwl-space-4);
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-notifications .pwl-encomendas-empty-management-alert {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+@media (max-width: 1100px) {
+  .pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+    min-height: 0;
+  }
+  .pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-notifications {
+    min-height: 0;
+  }
+}
+@media (max-width: 600px) {
+  .pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+  .pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-main > .pwl-encomendas-stats > .pwl-card:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+/* v1.4.41 | Ajustes exclusivos da Portal UI Gestao. */
+.pwl-ds.pwl-portal-ui.cm-stitch-gestao { margin-block-start: 0; }
+.pwl-ds.cm-stitch-gestao .pwl-portal-page { gap: var(--pwl-space-2); padding-block-start: 0; margin-block-start: 0; }
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-top { margin-block-start: 0; gap: var(--pwl-space-2); }
+.pwl-ds.cm-stitch-gestao .cm-stitch-actions { margin-block: 0; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-layout { margin-block-start: 0; }
+/* O desenho do popup e o mesmo SVG do cabecalho, sem alterar o backend. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header::before { content: none !important; display: none !important; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card { position: fixed; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card > .cm-stitch-modal-package-icon { position:absolute; z-index:2; top:var(--pwl-space-5); left:var(--pwl-space-5); display:flex; align-items:center; justify-content:center; width:calc(var(--pwl-space-6) * 2); height:calc(var(--pwl-space-6) * 2); background:var(--pwl-color-primary); color:var(--pwl-color-surface); border-radius:var(--pwl-radius-lg); pointer-events:none; }
+.pwl-ds.cm-stitch-gestao .cm-stitch-modal-package-icon svg { display:block; width:70%; height:70%; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card .pwl-card__header { padding-inline-start:calc(var(--pwl-space-5) * 2 + var(--pwl-space-6) * 2); }
+
+/* v1.4.42: unifica a faixa entre header global e Portal UI Gestao.
+   A cor vem do token global; nenhuma outra tela recebe esta regra. */
+body:has(.pwl-encomendas-portal.cm-stitch-gestao),
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) #page,
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) #content,
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) .site-content,
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) .site-main,
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) .entry-content {
+  background-color: var(--pwl-color-background);
+}
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao {
+  background-color: var(--pwl-color-background);
+}
+
+/* v1.4.43 | Corrige a faixa do wrapper externo sob o header somente na Gestao.
+   A cor segue o token global de fundo, inclusive no tema escuro. */
+html:has(.pwl-encomendas-portal.cm-stitch-gestao) body,
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) :is(#page, #content, #primary, #main, .site, .site-content, .site-main, .content-area, .entry-content, .wp-site-blocks, .wp-block-post-content),
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) :is(.pwl-portal-ui, .pwl-portal-page, .pwl-page) {
+  background-color: var(--pwl-color-background) !important;
+}
+/* Elimina a pequena faixa residual criada pelo padding superior do tema. */
+body:has(.pwl-encomendas-portal.cm-stitch-gestao) :is(#content, .site-content, .content-area, .entry-content) {
+  border-top-color: transparent;
+}
+
+/* v1.4.44 | Icone do popup no cabecalho, sem ocupar a area do formulario. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card > .pwl-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--pwl-space-3);
+  padding-inline-start: var(--pwl-space-5);
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card > .pwl-card__header > .cm-stitch-modal-package-icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--pwl-space-6) * 2);
+  height: calc(var(--pwl-space-6) * 2);
+  border-radius: var(--pwl-radius-lg);
+  background: var(--pwl-color-primary);
+  color: var(--pwl-color-surface);
+  overflow: hidden;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-registration-card > .pwl-card__header > .cm-stitch-modal-package-icon svg {
+  display: block;
+  width: 70%;
+  height: 70%;
+  max-width: 70%;
+  max-height: 70%;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* v1.4.45: tonalidade dos indicadores calculada no servidor, somente na Gestao. */
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-stats > .pwl-card.cm-encomendas-stat--success { background: var(--pwl-color-success-soft); }
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-stats > .pwl-card.cm-encomendas-stat--warning { background: var(--pwl-color-warning-soft); }
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-stats > .pwl-card.cm-encomendas-stat--danger { background: var(--pwl-color-danger-soft); }
+
+/* 1.4.47: mensagem vazia sem caixa, somente texto. */
+.pwl-ds.pwl-encomendas-portal.cm-stitch-gestao .pwl-encomendas-management-notifications .pwl-encomendas-empty-management-text {
+  margin: 0;
+  color: var(--pwl-color-text-secondary);
+  font: var(--pwl-font-body);
+}
+
+/* 1.5.0: seletor hibrido usa componentes oficiais. */
+.pwl-encomendas-portal .pwl-encomendas-hybrid-switch { display:flex; flex-wrap:wrap; gap:var(--pwl-space-3); margin-block:var(--pwl-space-4); }
+.pwl-encomendas-portal .pwl-encomendas-hybrid-notice[hidden],
+.pwl-encomendas-portal .pwl-encomendas-hybrid-management[hidden] { display:none !important; }
+
+/* 1.5.1: popup de aviso utiliza a mesma estrutura visual do popup original. */
+
+
+.pwl-ds .pwl-encomendas-notice-form-card {
+    --pwl-encomendas-registration-ink: #24354a;
+    --pwl-encomendas-registration-glass: rgb(36 53 74 / 94%);
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 18%);
+    border-radius: var(--pwl-radius-xl);
+    background: linear-gradient(118deg, rgb(36 53 74 / 98%) 0%, var(--pwl-encomendas-registration-glass) 72%, rgb(73 57 62 / 90%) 100%);
+    box-shadow: var(--pwl-shadow-card);
+    color: #f8fafc;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card > .pwl-card__header {
+    border-color: rgb(255 255 255 / 16%);
+    background: transparent;
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-card__title,
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-card__description,
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-field__label {
+    color: #f8fafc;
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-card__description {
+    opacity: .82;
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-input,
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-select {
+    border-color: rgb(255 255 255 / 24%);
+    background: rgb(255 255 255 / 92%);
+    color: var(--pwl-color-text);
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-input:hover,
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-select:hover {
+    border-color: rgb(255 255 255 / 55%);
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-input:focus,
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-select:focus {
+    border-color: var(--pwl-color-primary);
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-encomendas-create-grid input.pwl-input {
+    border-color: rgb(255 255 255 / 24%) !important;
+    background: rgb(255 255 255 / 92%) !important;
+}
+
+
+.pwl-ds .pwl-encomendas-notice-form-card .pwl-encomendas-create-grid input.pwl-input:hover {
+    border-color: rgb(255 255 255 / 55%) !important;
+}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card {display:none}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {display:block;position:fixed;inset:0;z-index:99999;overflow:auto;margin:0;background:var(--pwl-color-surface);width:min(100%, 640px);height:max-content;max-height:90vh;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:var(--pwl-shadow-card);border-radius:var(--pwl-radius-xl)}
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible{max-height:100vh;border-radius:0}
+
+
+/* v1.4.19: popup da Gestao conforme referencia Stitch. Escopo exclusivo Portal UI. */
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible{width:min(100% - 2 * var(--pwl-space-4),var(--pwl-modal-width-md, 540px));max-height:calc(100dvh - 2 * var(--pwl-space-5));overflow-y:auto;padding:0;background:var(--pwl-color-surface);border:0;box-shadow:var(--pwl-shadow-xl,var(--pwl-shadow-card));}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header{display:flex;align-items:flex-start;position:relative;gap:var(--pwl-space-3);padding:var(--pwl-space-5);background:var(--pwl-color-surface-subtle);border:0;}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header:before{content:'⊞';display:grid;place-items:center;flex:none;width:var(--pwl-space-9,36px);height:var(--pwl-space-9,36px);border-radius:var(--pwl-radius-lg);background:var(--pwl-color-primary);color:var(--pwl-color-on-primary,#fff);font-size:var(--pwl-font-size-xl,22px);font-weight:700;}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__title{font:var(--pwl-font-heading-md);color:var(--pwl-color-text);margin:0;}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__subtitle{color:var(--pwl-color-text-secondary);font:var(--pwl-font-body-sm);margin:var(--pwl-space-1) 0 0;}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .cm-stitch-close{position:absolute;top:var(--pwl-space-4);right:var(--pwl-space-4);border:0;background:transparent;font-size:var(--pwl-font-size-xl,22px);padding:var(--pwl-space-1);}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__body{padding:var(--pwl-space-5);}
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible{width:100%;max-height:100dvh;border-radius:0}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__body {
+  padding: var(--pwl-space-7);
+}
+
+  .cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__body {padding: var(--pwl-space-5);}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 82%, transparent);
+  -webkit-backdrop-filter: blur(var(--pwl-space-5)) saturate(150%);
+  backdrop-filter: blur(var(--pwl-space-5)) saturate(150%);
+  border: 1px solid color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 78%, transparent);
+}
+
+
+/* v1.4.24: maior transparencia no vidro branco do popup de registro. */
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+
+
+/* v1.4.25: vidro branco perceptivel em TODAS as camadas do popup.
+   A superficie interna opaca da versao anterior ocultava a transparencia do card. */
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 38%, transparent);
+  -webkit-backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  backdrop-filter: blur(var(--pwl-space-5)) saturate(160%);
+  border: 1px solid color-mix(in srgb, var(--pwl-color-surface) 65%, transparent);
+}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible > .pwl-card__body,
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible > .pwl-card__header,
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-card__body {
+  background: transparent;
+}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 28%, transparent);
+}
+
+
+/* v1.4.26: maior transparencia do card Air Glass, sem alterar a pagina. */
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {
+  background: color-mix(in srgb, var(--pwl-color-surface) 20%, transparent);
+}
+
+.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-card__header {
+  background: color-mix(in srgb, var(--pwl-color-surface-subtle) 12%, transparent);
+}
+
+
+/* v1.4.28: alinhamento do cabecalho do popup de Gestao. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header {
+  justify-content: flex-start;
+}
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header > div {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  text-align: left;
+  padding-right: var(--pwl-space-8);
+}
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__description {
+  color: var(--pwl-color-black, #000);
+  text-align: left;
+}
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card:not(.cm-stitch-visible) {display:none;}
+
+/* O desenho do popup e o mesmo SVG do cabecalho, sem alterar o backend. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header::before { content: none !important; display: none !important; }
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card { position: fixed; }
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card > .cm-stitch-modal-package-icon { position:absolute; z-index:2; top:var(--pwl-space-5); left:var(--pwl-space-5); display:flex; align-items:center; justify-content:center; width:calc(var(--pwl-space-6) * 2); height:calc(var(--pwl-space-6) * 2); background:var(--pwl-color-primary); color:var(--pwl-color-surface); border-radius:var(--pwl-radius-lg); pointer-events:none; }
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header { padding-inline-start:calc(var(--pwl-space-5) * 2 + var(--pwl-space-6) * 2); }
+
+
+/* v1.4.44 | Icone do popup no cabecalho, sem ocupar a area do formulario. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card > .pwl-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--pwl-space-3);
+  padding-inline-start: var(--pwl-space-5);
+}
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card > .pwl-card__header > .cm-stitch-modal-package-icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--pwl-space-6) * 2);
+  height: calc(var(--pwl-space-6) * 2);
+  border-radius: var(--pwl-radius-lg);
+  background: var(--pwl-color-primary);
+  color: var(--pwl-color-surface);
+  overflow: hidden;
+}
+
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card > .pwl-card__header > .cm-stitch-modal-package-icon svg {
+  display: block;
+  width: 70%;
+  height: 70%;
+  max-width: 70%;
+  max-height: 70%;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice > .pwl-encomendas-notice-form-card:not(.cm-stitch-visible) {display:none!important;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card.cm-stitch-visible {position:fixed; z-index:100002; inset:auto; top:50%; left:50%; transform:translate(-50%,-50%); width:min(var(--pwl-modal-width-lg, 800px), calc(100vw - 2 * var(--pwl-space-4))); max-height:calc(100dvh - 2 * var(--pwl-space-4)); overflow:auto;}
+.pwl-ds.cm-stitch-gestao .cm-stitch-notice-overlay {z-index:100001;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-switch {margin-inline-start:auto; margin-block:0;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-own-notices {display:none;}
+
+/* 1.5.2: aviso reutiliza a moldura original do popup de registro, sem afetar a gestao. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible {display:block; width:min(100% - 2 * var(--pwl-space-4),var(--pwl-modal-width-md, 540px)); max-height:calc(100dvh - 2 * var(--pwl-space-5)); overflow-y:auto; overflow-x:hidden;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__body {min-width:0;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-encomendas-advance-notice-grid {min-width:0;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-encomendas-password-control {min-width:0; flex-wrap:wrap;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-encomendas-password-control input {min-width:0; flex:1 1 auto;}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-card__header {padding-inline-start:var(--pwl-space-5);}
+@media(max-width:700px){.pwl-ds.cm-stitch-gestao .pwl-encomendas-notice-form-card .pwl-encomendas-advance-notice-grid {grid-template-columns:minmax(0,1fr);}}
+
+/* 1.5.3: ambos os gatilhos permanecem no mesmo cabecalho; modais independentes. */
+.pwl-ds.cm-stitch-gestao .cm-stitch-actions > [data-cm-open-registration] {margin-inline-start:auto;}
+.pwl-ds.cm-stitch-gestao .cm-stitch-actions > [data-pwl-open-notice] {flex-shrink:0;}
+
+/* 1.5.4: texto preto apenas no popup de aviso; icone send exclusivo do aviso. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible { color: #000000; }
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-card__title,
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-card__description,
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible .pwl-field__label { color: #000000; }
+
+/* 1.5.5: rotulos dos seis campos do aviso hibrido em preto. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card .pwl-encomendas-advance-notice-form .pwl-field__label.pwl-ui-label { color: #000000 !important; }
+
+/* 1.5.6: cantos arredondados no popup Avisar a Portaria, inclusive no mobile. */
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card.cm-stitch-visible {
+  border-radius: var(--pwl-radius-xl) !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.pwl-ds.cm-stitch-gestao .pwl-encomendas-hybrid-notice .pwl-encomendas-notice-form-card .pwl-card__header {
+  border-start-start-radius: var(--pwl-radius-xl);
+  border-start-end-radius: var(--pwl-radius-xl);
+}

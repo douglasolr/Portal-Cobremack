@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 36" role="img" aria-label="Mercado Livre">
+  <rect x="1" y="1" width="78" height="34" rx="17" fill="#ffe600"/>
+  <path d="M15 21h9l5-4 5 1 4-3 6 2 4-3h8" fill="none" stroke="#2d3277" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"/>
+  <path d="m26 21 5 4 5-3 4 2 6-4" fill="none" stroke="#2d3277" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7"/>
+</svg>

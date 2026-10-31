@@ -1,0 +1,27 @@
+PWL Notificações v1.10.3 - valores de encomenda nos modelos de e-mail
+Data: 31/10/2026 | Status: Em Testes
+
+Instalação: atualize o plugin existente usando este ZIP. Não instale ao lado de outra cópia. Requer PWL Core 1.55.0 ou superior para usar o layout compartilhado de e-mail.
+Requisitos: HTTPS valido, PHP com OpenSSL ECDH/AES-GCM, acesso HTTPS de saida aos provedores de push, WP-Cron ativo (recomendado cron real a cada minuto).
+O Service Worker usa o escopo isolado /pwl-notificacoes-push/ para nao assumir o escopo raiz do PWA.
+
+Uso: colaborador acessa as preferencias, habilita notificacoes Windows, salva e autoriza o navegador. O dispositivo e registrado; notificacoes futuras geram itens na fila, inclusive publicacoes agendadas.
+
+ATENCAO: Nao foi realizado teste integrado em WordPress/Edge/Chrome nem entrega real ao provedor de push. Fazer backup e homologar antes de producao. Navegador totalmente encerrado pode impedir entrega conforme politica de segundo plano.
+
+1.10.3 (31/10/2026) - Parser de e-mail de encomendas aceita Descrição e Embalagem como rótulos do campo description e preserva o Código de Rastreio.
+1.10.2 (16/10/2026) - Conversão visual Admin/Workspace para contratos oficiais do Design System, sem alteração funcional.
+1.10.1 (15/10/2026) - API pública para que módulos como Caixinha usem os modelos editáveis também nos envios diretos.
+1.10.0 (15/10/2026) - Central de modelos por módulo com editor WYSIWYG, prévia ao vivo e tokens de substituição; identidade global permanece no PWL Core.
+1.9.3 (15/10/2026) - Formatação específica do e-mail de Caixinha: campos rotulados, saudação no tamanho do corpo e botão centralizado com cantos arredondados.
+1.9.2 (15/10/2026) - O corpo dos avisos de encomenda reconhece o novo rótulo do código interno e formata o ramal da Portaria como último item.
+
+Alteracoes: fila push com tentativas, criptografia aes128gcm RFC8291, VAPID ES256, inscricoes por usuario, respeito a preferencia desktop, SW isolado, limpeza de assinaturas 404/410, preservacao de recursos v1.7.5.
+
+
+1.8.2 (15/10/2026) - Correcao: Service Worker servido em init prioridade 0, antes da resolucao de 404 do WordPress. Nao depende de flush de permalinks. Cabecalhos 200, JavaScript, nosniff e no-store; escopo isolado preservado. Nenhuma mudanca no envio, permissoes ou interface.
+Teste: abrir https://portal.cobremack.com.br/pwl-notificacoes-push/sw.js em janela anonima: deve retornar codigo JavaScript, nao pagina 404. Se continuar 404, verificar regras do servidor/CDN/WAF que bloqueiam a requisicao antes do WordPress.
+
+
+1.9.1 (15/10/2026) - Renderização específica para notificações de encomenda: corpo estruturado com rótulos em negrito, sem categoria/prioridade, botão ou prévia duplicada; assunto sem prioridade.
+1.9.0 (15/10/2026) - Configurações visuais e renderização do e-mail passaram ao PWL Core. O módulo mantém conteúdo, fila, destinatários, preferências e assunto específico da notificação. As opções legadas são migradas automaticamente pelo Core.
